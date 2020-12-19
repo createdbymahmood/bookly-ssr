@@ -16,7 +16,7 @@ import { Image } from 'components/Image';
 export const EmptyGrid: FC<EmptyGridProps> = ({ className, query }) => {
     return (
         <div className={clsx(s.box, className)}>
-            <Image src={require('assets/icons/empty.svg')} />
+            <Image src={'/icons/empty.svg'} />
             <Text className={clsx(s.title, 'mt-3')}>
                 متاسفیم! جست و جوی کلمه ی "{query}" نتیجه ای نداشت! 😁
             </Text>{' '}

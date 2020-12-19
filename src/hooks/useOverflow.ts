@@ -1,4 +1,4 @@
-import { useState, RefObject, useLayoutEffect } from 'react';
+import { useState, RefObject, useEffect } from 'react';
 
 import { useWindowSize } from 'react-use';
 
@@ -10,7 +10,7 @@ export function useOverflow(ref: RefObject<HTMLElement>) {
 
     const size = useWindowSize();
 
-    useLayoutEffect((): any => {
+    useEffect((): any => {
         if (!ref?.current) {
             return;
         }

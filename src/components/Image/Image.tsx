@@ -10,8 +10,8 @@ import s from './Image.module.scss';
 import { injectDefaultProps } from 'components/hoc/inject';
 import { DEFAULT_IMAGE_ALT } from 'constants/config';
 
-const Image: FC<ImageProps> = ({ className, ...restProps }) => {
-    return <NextImage className={clsx(s.img, className)} {...restProps} />;
+const Image = ({ className, ...restProps }: ImageProps) => {
+    return <img className={clsx(s.img, className)} {...restProps} />;
 };
 
 export default injectDefaultProps<ImageComponentProps, 'alt'>(Image, {

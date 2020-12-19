@@ -19,7 +19,7 @@ export const EditButton: FC<EditButtonProps> = ({
     return (
         <AclService permission={permission}>
             <Image
-                src={require('assets/icons/edit.svg')}
+                src={'/icons/edit.svg'}
                 className={clsx(className, s.icon)}
                 {...restProps}
             />

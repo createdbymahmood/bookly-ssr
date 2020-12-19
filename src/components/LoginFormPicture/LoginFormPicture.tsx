@@ -1,14 +1,14 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
+import { Image } from 'components/Image';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
-import { ReactComponent as Picture } from "assets/icons/login.svg";
 /* types */
-import { LoginFormPictureProps } from "./LoginFormPicture.types";
+import { LoginFormPictureProps } from './LoginFormPicture.types';
 /* styles */
-import s from "./LoginFormPicture.module.scss";
+import s from './LoginFormPicture.module.scss';
 
 export const LoginFormPicture: FC<LoginFormPictureProps> = ({
     className,
@@ -16,7 +16,11 @@ export const LoginFormPicture: FC<LoginFormPictureProps> = ({
 }) => {
     return (
         <div className="d-flex justify-content-center">
-            <Picture className={clsx(s.picture, className)} {...restProps} />
+            <Image
+                src={'/icons/login.svg'}
+                className={clsx(s.picture, className)}
+                {...restProps}
+            />
         </div>
     );
 };

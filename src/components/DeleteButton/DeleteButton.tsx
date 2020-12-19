@@ -26,7 +26,7 @@ export const DeleteButton: FC<DeleteButtonProps> = ({
         <AclService permission={permission}>
             <PopConfirm {...restProps}>
                 <Image
-                    src={require('assets/icons/delete.svg')}
+                    src={'/icons/delete.svg'}
                     className={clsx(className, s.icon)}
                 />
             </PopConfirm>

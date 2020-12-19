@@ -55,7 +55,7 @@ export const Content = (props: UserLayoutComponentProps) => {
                             href={item.link}
                         >
                             <Image
-                                src={require('assets/icons/settings.svg')}
+                                src={'/icons/settings.svg'}
                                 className={s.menuItemIcon}
                             />
                             <Text className={s.menuItemText}>{item.title}</Text>

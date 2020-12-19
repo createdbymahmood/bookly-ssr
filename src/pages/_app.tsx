@@ -7,23 +7,31 @@ import 'dayjs/locale/fa';
 import 'swiper/swiper.scss';
 /* wrapping services */
 import { RecoilService } from 'services/recoil/recoilService';
-import { ReactQueryService } from 'services/react-query/reactQueryService';
 import { ConfigProvider } from 'antd';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
 
 import relativeTime from 'dayjs/plugin/relativeTime';
 import dayJs from 'dayjs';
+import { Container } from 'components/Container';
 
 dayJs.extend(relativeTime);
 dayJs.locale('fa');
 
+const queryClient = new QueryClient();
+
 function MyApp({ Component, pageProps }) {
     return (
         <RecoilService>
-            <ReactQueryService>
-                <ConfigProvider direction="rtl">
-                    <Component {...pageProps} />
-                </ConfigProvider>
-            </ReactQueryService>
+            <ConfigProvider direction="rtl">
+                <QueryClientProvider client={queryClient}>
+                    <Hydrate state={pageProps.dehydratedState}>
+                        <Container>
+                            <Component {...pageProps} />
+                        </Container>
+                    </Hydrate>
+                </QueryClientProvider>
+            </ConfigProvider>
         </RecoilService>
     );
 }

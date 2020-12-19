@@ -5,7 +5,5 @@ export const generateFakeImageUrl = (
     keyword: string = key,
     imageSize: string = size
 ): string => {
-    return require('assets/images/book.jpg');
+    return '/images/book.jpg';
 };
-
-console.log(Image);

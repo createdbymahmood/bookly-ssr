@@ -14,9 +14,8 @@ import { BooksGridProps } from './BooksGrid.types.d';
 
 export const BooksGrid: FC<BooksGridProps> = ({ books, loading = false }) => {
     const { query } = useRouter();
-
     const filterBooks = (book: Book.Base) =>
-        checkInclusion(book.title, String(query.query));
+        checkInclusion(book.title, query.query);
 
     if (loading) {
         return <BookBox.ShimmerGrid />;

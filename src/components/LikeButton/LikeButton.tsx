@@ -32,7 +32,7 @@ export const LikeButton: FC<LikeButtonComponentProps> = props => {
     return (
         <AclService permission={permission}>
             <Image
-                src={require('assets/icons/like.svg')}
+                src={'/icons/like.svg'}
                 className={svgColor}
                 onClick={toggleLike}
                 {...restProps}

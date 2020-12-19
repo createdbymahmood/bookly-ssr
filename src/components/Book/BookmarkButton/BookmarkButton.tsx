@@ -21,7 +21,7 @@ export const BookmarkButton: FC<BookmarkButtonComponentProps> = ({
 
     return (
         <Image
-            src={require('assets/icons/bookmark.svg')}
+            src={'/icons/bookmark.svg'}
             onClick={toggleBookmarkState}
             className={svgColor}
             {...restProps}

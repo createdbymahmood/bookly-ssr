@@ -27,7 +27,7 @@ export const PublisherBox: FC<PublisherBoxComponentProps> = props => {
         title,
         description,
         initialFollowingState = false,
-        imageSrc = require('assets/images/book.jpg'),
+        imageSrc = '/images/book.jpg',
         onFollow = defaultOnFollow,
         ...restProps
     } = props;

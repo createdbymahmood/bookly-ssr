@@ -31,10 +31,7 @@ export const CommentBox: FC<CommentBoxProps> = ({
                 permission="routes.profile.publicUser"
                 {...routeTo.publicUserProfile(userId)}
             >
-                <Image
-                    className={s.profileImage}
-                    src={require('assets/images/book.jpg')}
-                />
+                <Image className={s.profileImage} src={'/images/book.jpg'} />
             </Link>
 
             <div className={s.header}>
