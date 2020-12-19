@@ -84,10 +84,10 @@ const PublisherBoxFollowButton = ({
     id: publisherId,
     initialFollowingState = false,
 }: Pick<PublisherBoxComponentProps, 'initialFollowingState' | 'id'>) => {
-    const [
-        follow,
-        { isLoading: followPublisherIsLoading },
-    ] = useFollowPublisher();
+    const {
+        mutate: follow,
+        isLoading: followPublisherIsLoading,
+    } = useFollowPublisher();
 
     const SubscriptionTextButtonText = conditionalText(
         initialFollowingState,
