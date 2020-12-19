@@ -5,10 +5,10 @@ import { mock } from 'helpers/mock';
 import { useBooks, readBooks } from 'hooks/operations';
 import { compose } from 'helpers/compose';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
+import { GetServerSideProps } from 'next';
 
 function Home(props) {
     const { data, isFetched } = useBooks({ initialData: props.initialBooks });
-
     return (
         <Fragment>
             <Head title="خانه">
@@ -23,9 +23,8 @@ function Home(props) {
     );
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     const books = await readBooks();
-
     return {
         props: {
             initialBooks: books,
