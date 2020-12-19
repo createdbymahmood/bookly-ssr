@@ -1,9 +1,9 @@
-import { useMutation } from "react-query";
-import API_URLS from "constants/apiUrls";
-import apiService from "services/api/apiService";
-import { Profile } from "types/profile";
-import * as notice from "helpers/notice";
-import API_RESPONSE_MESSAGES from "constants/apiResponseMessages";
+import { useMutation } from 'react-query';
+import API_URLS from 'constants/apiUrls';
+import apiService from 'services/api/apiService';
+import { Profile } from 'types/profile';
+import * as notice from 'helpers/notice';
+import API_RESPONSE_MESSAGES from 'constants/apiResponseMessages';
 
 export const updateProfile = async (
     profile: Profile.Mutation.Update.Variables

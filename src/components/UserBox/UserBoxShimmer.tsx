@@ -1,6 +1,6 @@
-import React from "react";
-import clsx from "classnames";
-import s from "./UserBoxShimmer.module.scss";
+import React from 'react';
+import clsx from 'classnames';
+import s from './UserBoxShimmer.module.scss';
 
 export const UserBoxShimmer = () => {
     return (

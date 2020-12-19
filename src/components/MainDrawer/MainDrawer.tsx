@@ -1,15 +1,15 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 /* components */
-import { Drawer } from "components/Drawer";
-import { MenuBarItem } from "components/MenuBarItem";
+import { Drawer } from 'components/Drawer';
+import { MenuBarItem } from 'components/MenuBarItem';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* types */
-import { MainDrawerComponentProps } from "./MainDrawer.types";
+import { MainDrawerComponentProps } from './MainDrawer.types';
 /* styles */
-import s from "./MainDrawer.module.scss";
+import s from './MainDrawer.module.scss';
 
 export const MainDrawer: FunctionComponent<MainDrawerComponentProps> = props => {
     return (

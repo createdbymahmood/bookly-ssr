@@ -1,25 +1,25 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 /* components */
-import { Form } from "antd";
-import { Input } from "components/Input";
-import { Button } from "components/Button";
+import { Form } from 'antd';
+import { Input } from 'components/Input';
+import { Button } from 'components/Button';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* constants */
-import { REGISTER_FORM_VALIDATION_RULES } from "constants/validationRules";
+import { REGISTER_FORM_VALIDATION_RULES } from 'constants/validationRules';
 /* types */
-import { RegisterFormComponentProps } from "./RegisterForm.types";
+import { RegisterFormComponentProps } from './RegisterForm.types';
 /* styles */
-import s from "./RegisterForm.module.scss";
+import s from './RegisterForm.module.scss';
 
 export const RegisterForm: FunctionComponent<RegisterFormComponentProps> = ({
     onSubmit = defaultOnSubmit,
     loading = false,
 }) => {
     return (
-        <Form layout="vertical" onFinish={onSubmit} style={{ width: "100%" }}>
+        <Form layout="vertical" onFinish={onSubmit} style={{ width: '100%' }}>
             <Form.Item
                 label="نام کاربری"
                 name="username"

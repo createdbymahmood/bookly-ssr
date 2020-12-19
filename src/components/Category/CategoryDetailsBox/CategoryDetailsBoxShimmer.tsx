@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 /* modules */
-import clsx from "classnames";
-import s from "./CategoryDetailsBoxShimmer.module.scss";
+import clsx from 'classnames';
+import s from './CategoryDetailsBoxShimmer.module.scss';
 
 export const CategoryDetailsBoxShimmer = () => {
     return (

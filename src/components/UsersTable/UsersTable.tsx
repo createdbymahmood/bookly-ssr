@@ -1,15 +1,15 @@
-import React, { FunctionComponent, useRef, useState } from "react";
+import React, { FunctionComponent, useRef, useState } from 'react';
 /* components */
-import { Table } from "components/Table";
-import { ColumnsType } from "antd/lib/table";
+import { Table } from 'components/Table';
+import { ColumnsType } from 'antd/lib/table';
 /* modules */
 /* helpers */
-import { RenderActionsColumn, RenderColumnName } from "./columns";
+import { RenderActionsColumn, RenderColumnName } from './columns';
 /* assets */
 /* types */
-import { UsersTableComponentProps } from "./UsersTable.types";
-import { mock } from "helpers/mock";
-import { getColumnSearchProps } from "./lib";
+import { UsersTableComponentProps } from './UsersTable.types';
+import { mock } from 'helpers/mock';
+import { getColumnSearchProps } from './lib';
 /* styles */
 /*
  * todo {
@@ -23,13 +23,13 @@ export type UsersDataSourceType = {
     username: string;
     emailAddress: string;
 };
-const dataSource = mock("users", 20);
+const dataSource = mock('users', 20);
 
 export const UsersTable: FunctionComponent<UsersTableComponentProps> = props => {
     const { className, onDeleteUser, ...restProps } = props;
 
-    const [searchText, setSearchText] = useState("");
-    const [searchedColumn, setSearchedColumn] = useState("");
+    const [searchText, setSearchText] = useState('');
+    const [searchedColumn, setSearchedColumn] = useState('');
 
     const inputRef = useRef<any>(null!);
     const handleSearch = (
@@ -44,14 +44,14 @@ export const UsersTable: FunctionComponent<UsersTableComponentProps> = props => 
 
     const handleReset = (clearFilters: Function) => {
         clearFilters();
-        setSearchText("");
+        setSearchText('');
     };
 
     const columns: ColumnsType<UsersDataSourceType> = [
         {
-            title: "نام",
-            dataIndex: "name",
-            key: "name",
+            title: 'نام',
+            dataIndex: 'name',
+            key: 'name',
             render: (name, record, index) => (
                 <RenderColumnName<UsersDataSourceType>
                     name={name}
@@ -61,11 +61,11 @@ export const UsersTable: FunctionComponent<UsersTableComponentProps> = props => 
             ),
         },
         {
-            title: "نام کاربری",
-            dataIndex: "username",
-            key: "username",
+            title: 'نام کاربری',
+            dataIndex: 'username',
+            key: 'username',
             ...getColumnSearchProps(
-                "username",
+                'username',
                 handleReset,
                 handleSearch,
                 inputRef,
@@ -74,11 +74,11 @@ export const UsersTable: FunctionComponent<UsersTableComponentProps> = props => 
             ),
         } as any,
         {
-            title: "آدرس ایمیل",
-            dataIndex: "emailAddress",
-            key: "emailAddress",
+            title: 'آدرس ایمیل',
+            dataIndex: 'emailAddress',
+            key: 'emailAddress',
             ...getColumnSearchProps(
-                "emailAddress",
+                'emailAddress',
                 handleReset,
                 handleSearch,
                 inputRef,
@@ -87,9 +87,9 @@ export const UsersTable: FunctionComponent<UsersTableComponentProps> = props => 
             ),
         } as any,
         {
-            title: "عملیات",
-            dataIndex: "",
-            key: "x",
+            title: 'عملیات',
+            dataIndex: '',
+            key: 'x',
             render: (name, record, index) => (
                 <RenderActionsColumn<UsersDataSourceType>
                     name={name}

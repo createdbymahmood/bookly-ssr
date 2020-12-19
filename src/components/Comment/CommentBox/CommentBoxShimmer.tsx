@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 /* styles */
-import s from "./CommentBoxShimmer.module.scss";
+import s from './CommentBoxShimmer.module.scss';
 
 export const CommentBoxShimmer = () => {
     return (

@@ -1,6 +1,6 @@
-import React from "react";
-import clsx from "classnames";
-import s from "./PublisherBoxShimmer.module.scss";
+import React from 'react';
+import clsx from 'classnames';
+import s from './PublisherBoxShimmer.module.scss';
 
 export const PublisherBoxShimmer = () => {
     return (
@@ -11,7 +11,7 @@ export const PublisherBoxShimmer = () => {
             <div className={s.content}>
                 <div className={s.title} />
                 <div className={s.description} />
-                <div className={clsx(s.follow, "mt-4")}></div>
+                <div className={clsx(s.follow, 'mt-4')}></div>
             </div>
         </div>
     );

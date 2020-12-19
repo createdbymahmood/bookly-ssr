@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosInstance } from "axios";
+import { AxiosRequestConfig, AxiosInstance } from 'axios';
 
 interface AuthRequestConfig {
     /**
@@ -7,7 +7,7 @@ interface AuthRequestConfig {
     shouldAuthenticate?: boolean;
 }
 
-declare module "axios" {
+declare module 'axios' {
     interface AxiosRequestConfig extends AuthRequestConfig {}
 }
 

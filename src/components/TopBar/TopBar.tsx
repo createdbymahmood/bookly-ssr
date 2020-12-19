@@ -1,19 +1,19 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment } from 'react';
 /* components */
-import { MenuBar } from "components/MenuBar";
-import { Row } from "components/Row";
-import { Col } from "components/Col";
+import { MenuBar } from 'components/MenuBar';
+import { Row } from 'components/Row';
+import { Col } from 'components/Col';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* constants */
-import { MENU } from "constants/topbar";
+import { MENU } from 'constants/topbar';
 /* types */
-import { TopBarComponentProps } from "./TopBar.types";
-import { FeedFilterBox } from "components/FeedFilterBox";
+import { TopBarComponentProps } from './TopBar.types';
+import { FeedFilterBox } from 'components/FeedFilterBox';
 /* styles */
-import s from "./TopBar.module.scss";
+import s from './TopBar.module.scss';
 
 export const TopBar: FC<TopBarComponentProps> = React.memo(props => {
     const { className, title, onSearch, withSearchbar, ...restProps } = props;

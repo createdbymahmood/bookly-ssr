@@ -1,18 +1,18 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 /* components */
-import { Form } from "antd";
-import { Input } from "components/Input";
-import { Button } from "components/Button";
+import { Form } from 'antd';
+import { Input } from 'components/Input';
+import { Button } from 'components/Button';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* constants */
-import { LOGIN_FORM_VALIDATION_RULES } from "constants/validationRules";
+import { LOGIN_FORM_VALIDATION_RULES } from 'constants/validationRules';
 /* types */
-import { LoginFormComponentProps } from "./LoginForm.types";
+import { LoginFormComponentProps } from './LoginForm.types';
 /* styles */
-import s from "./LoginForm.module.scss";
+import s from './LoginForm.module.scss';
 
 export const LoginForm: FunctionComponent<LoginFormComponentProps> = ({
     onSubmit,
@@ -23,7 +23,7 @@ export const LoginForm: FunctionComponent<LoginFormComponentProps> = ({
             layout="vertical"
             name="basic"
             onFinish={onSubmit}
-            style={{ width: "100%" }}
+            style={{ width: '100%' }}
         >
             <Form.Item
                 label="نام کاربری"

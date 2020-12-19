@@ -1,11 +1,9 @@
-import { Publisher } from "components/Publisher";
+import { Publisher } from 'components/Publisher';
 
 export type PublishersGridProps = {
     loading?: boolean;
     publishers: Publisher[];
 };
 
-export type PublishersGridComponentProps = React.HtmlHTMLAttributes<
-    HTMLDivElement
-> &
+export type PublishersGridComponentProps = React.HtmlHTMLAttributes<HTMLDivElement> &
     PublishersGridProps;

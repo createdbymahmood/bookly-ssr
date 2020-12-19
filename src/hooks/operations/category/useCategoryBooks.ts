@@ -1,7 +1,7 @@
-import { useQuery } from "react-query";
-import API_URLS from "constants/apiUrls";
-import apiService, { AxiosRequestConfig } from "services/api/apiService";
-import { fakeApiCall } from "helpers/fakeApi";
+import { useQuery } from 'react-query';
+import API_URLS from 'constants/apiUrls';
+import apiService, { AxiosRequestConfig } from 'services/api/apiService';
+import { fakeApiCall } from 'helpers/fakeApi';
 
 export const readCategoryBooks = async (_: unknown, categoryId: string) => {
     const requestConfig: AxiosRequestConfig = {

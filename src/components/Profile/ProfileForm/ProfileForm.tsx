@@ -1,34 +1,34 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment } from 'react';
 /* components */
-import { Form } from "antd";
-import { Input } from "components/Input";
-import { Button } from "components/Button";
-import { Col } from "components/Col";
-import { Row } from "components/Row";
-import { UploadDropbox } from "components/UploadDropbox";
+import { Form } from 'antd';
+import { Input } from 'components/Input';
+import { Button } from 'components/Button';
+import { Col } from 'components/Col';
+import { Row } from 'components/Row';
+import { UploadDropbox } from 'components/UploadDropbox';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
-import { ProfileFormPicture } from "components/Profile";
+import { ProfileFormPicture } from 'components/Profile';
 /* types */
-import { ProfileFormProps } from "./ProfileForm.types";
+import { ProfileFormProps } from './ProfileForm.types';
 /* styles */
-import s from "./ProfileForm.module.scss";
-import { PROFILE_FORM_RULES } from "constants/validationRules";
-import { Text } from "components/Text";
+import s from './ProfileForm.module.scss';
+import { PROFILE_FORM_RULES } from 'constants/validationRules';
+import { Text } from 'components/Text';
 
 export const ProfileForm: FC<ProfileFormProps> = ({
     onSubmit,
     loading = false,
 }) => {
     return (
-        <div className={clsx(s.box, "shadow p-3")}>
+        <div className={clsx(s.box, 'shadow p-3')}>
             <Text className={s.title}>پروفایل</Text>
             <Form
                 layout="vertical"
                 onFinish={onSubmit}
-                style={{ width: "100%" }}
+                style={{ width: '100%' }}
                 className="mt-3"
             >
                 <Row>

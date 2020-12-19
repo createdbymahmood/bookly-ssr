@@ -3,7 +3,5 @@ export type BaseLikeButtonProps = {
     initialBookmarkState: boolean;
 };
 
-export type BookmarkButtonComponentProps = React.HtmlHTMLAttributes<
-    HTMLOrSVGElement
-> &
+export type BookmarkButtonComponentProps = React.HtmlHTMLAttributes<HTMLOrSVGElement> &
     Partial<BaseLikeButtonProps>;

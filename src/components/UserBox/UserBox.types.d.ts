@@ -1,5 +1,5 @@
-import { HTMLProps } from "react";
-import { RoleUnionType } from "services/recoil/user/atoms";
+import { HTMLProps } from 'react';
+import { RoleUnionType } from 'services/recoil/user/atoms';
 
 export type UserBoxTypes = {
     name: string;

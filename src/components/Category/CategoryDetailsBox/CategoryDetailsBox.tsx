@@ -1,16 +1,16 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
-import { CategoryDetailsBoxShimmer } from "./CategoryDetailsBoxShimmer";
-import { Text } from "components/Text";
-import { Image } from "components/Image";
+import { CategoryDetailsBoxShimmer } from './CategoryDetailsBoxShimmer';
+import { Text } from 'components/Text';
+import { Image } from 'components/Image';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* types */
-import { CategoryDetailsBoxProps } from "./CategoryDetailsBox.types";
+import { CategoryDetailsBoxProps } from './CategoryDetailsBox.types';
 /* styles */
-import s from "./CategoryDetailsBox.module.scss";
+import s from './CategoryDetailsBox.module.scss';
 
 export const CategoryDetailsBox: FC<CategoryDetailsBoxProps> = ({
     className,

@@ -1,5 +1,5 @@
-import React from "react";
-import s from "./BookBox.Shimmer.module.scss";
+import React from 'react';
+import s from './BookBox.Shimmer.module.scss';
 
 export const BookBoxShimmer = () => {
     return (
