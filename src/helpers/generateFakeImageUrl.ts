@@ -5,5 +5,5 @@ export const generateFakeImageUrl = (
     keyword: string = key,
     imageSize: string = size
 ): string => {
-    return '/images/book.jpg';
+    return `${apiUrl}/${size}`;
 };
