@@ -1,38 +1,41 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
-import { Form } from "antd";
-import { Row } from "components/Row";
-import { Col } from "components/Col";
-import { UploadDropbox } from "components/UploadDropbox";
-import { Text } from "components/Text";
-import { Button } from "components/Button";
-import { Select } from "components/Select";
-import { Input } from "components/Input";
-import { ReadingBookSvg } from "components/ReadingBookSvg";
+import { Form } from 'antd';
+import { Row } from 'components/Row';
+import { Col } from 'components/Col';
+import { UploadDropbox } from 'components/UploadDropbox';
+import { Text } from 'components/Text';
+import { Button } from 'components/Button';
+import { Select } from 'components/Select';
+import { Input } from 'components/Input';
+import { ReadingBookSvg } from 'components/ReadingBookSvg';
 /* modules */
-import clsx from "classnames";
-import { useParams } from "react-router-dom";
+import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* mock */
-import { categoryOptions, publishersOptions, yearsOptions } from "./mock";
+import { categoryOptions, publishersOptions, yearsOptions } from './mock';
 /* types */
-import { SubmitBookFormProps } from "./SubmitBookForm.types";
+import { SubmitBookFormProps } from './SubmitBookForm.types';
 /* utils */
-import { getDropboxConfig, renderSubmitBookTitle } from "./utils";
+import { getDropboxConfig, renderSubmitBookTitle } from './utils';
 /* styles */
-import s from "./SubmitBookForm.module.scss";
+import s from './SubmitBookForm.module.scss';
+import { useRouter } from 'next/router';
 
 export const SubmitBookForm: FC<SubmitBookFormProps> = ({
     onSubmit,
     loading = false,
 }) => {
     const [form] = Form.useForm();
-    const { bookId } = useParams<Book.Id>();
+    const router = useRouter();
+    const { bookId } = router.query;
 
     return (
         <div className={clsx(s.box, `shadow p-3`)}>
-            <Text className={s.title}>{renderSubmitBookTitle(bookId)}</Text>
+            <Text className={s.title}>
+                {renderSubmitBookTitle(bookId as string)}
+            </Text>
 
             <Form
                 form={form}
@@ -81,7 +84,7 @@ export const SubmitBookForm: FC<SubmitBookFormProps> = ({
                                 htmlType="submit"
                                 loading={loading}
                             >
-                                {renderSubmitBookTitle(bookId)}
+                                {renderSubmitBookTitle(String(bookId))}
                             </Button>
                         </Form.Item>
                     </Col>

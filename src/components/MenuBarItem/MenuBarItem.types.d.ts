@@ -1,6 +1,6 @@
 export type MenuItem = {
     title: string;
-    link: string;
+    link: { href: string; as: string };
     permission: string;
     exact?: boolean;
 };

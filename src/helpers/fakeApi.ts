@@ -1,4 +1,4 @@
-export const fakeApiCall = <T>(): Promise<T> => {
+export const fakeApiCall = (): Promise<void> => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve();

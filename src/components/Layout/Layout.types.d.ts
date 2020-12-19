@@ -1,5 +1,4 @@
-import { HTMLProps } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { HTMLProps } from 'react';
 
 export type LayoutTypes = { withSearchbar: boolean };
 

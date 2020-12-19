@@ -52,7 +52,7 @@ export const Content = (props: UserLayoutComponentProps) => {
                             permission="routes.categories"
                             className={s.menuItem}
                             activeClassName={s.activeMenuItem}
-                            href={item.link}
+                            {...item.link}
                         >
                             <Image
                                 src={'/icons/settings.svg'}
