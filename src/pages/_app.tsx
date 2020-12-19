@@ -5,6 +5,9 @@ import 'assets/styles/global.scss';
 import 'bootstrap/dist/css/bootstrap-grid.min.css';
 import 'dayjs/locale/fa';
 import 'swiper/swiper.scss';
+import 'nprogress/nprogress.css';
+import 'components/NProgress/NProgress.scss';
+
 /* wrapping services */
 import { RecoilService } from 'services/recoil/recoilService';
 import { ConfigProvider } from 'antd';

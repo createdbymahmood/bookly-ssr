@@ -3,8 +3,6 @@ import NProgress, {
     NProgress as NProgressInstanceInterface,
 } from 'nprogress';
 
-import 'nprogress/nprogress.css';
-
 const NprogressConfig = {
     showSpinner: true,
 };
