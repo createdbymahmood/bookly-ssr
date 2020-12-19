@@ -12,5 +12,8 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-use": "^15.3.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
   }
 }
