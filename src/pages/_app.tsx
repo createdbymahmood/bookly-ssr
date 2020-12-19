@@ -14,6 +14,8 @@ import { Hydrate } from 'react-query/hydration';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import dayJs from 'dayjs';
 import { Container } from 'components/Container';
+import { Router } from 'next/router';
+import { NProgress } from 'components/NProgress';
 
 dayJs.extend(relativeTime);
 dayJs.locale('fa');
@@ -35,5 +37,15 @@ function MyApp({ Component, pageProps }) {
         </RecoilService>
     );
 }
+
+const handleRouteChange = () => {
+    return NProgress.start();
+};
+const handleRouteChangeCompleteOrFailed = () => {
+    return NProgress.done();
+};
+Router.events.on('routeChangeStart', handleRouteChange);
+Router.events.on('routeChangeComplete', handleRouteChangeCompleteOrFailed);
+Router.events.on('routeChangeError', handleRouteChangeCompleteOrFailed);
 
 export default MyApp;

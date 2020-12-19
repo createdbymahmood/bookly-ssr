@@ -37,8 +37,8 @@ export const BookImageCarousel: FC<BookImageCarouselProps> = ({
     );
 };
 
-const renderSwiperSlide = (item: unknown) => (
-    <SwiperSlide>
+const renderSwiperSlide = (item: unknown, index: number) => (
+    <SwiperSlide key={index}>
         <Image src={generateFakeImageUrl()} className={s.imageSlide} />
     </SwiperSlide>
 );

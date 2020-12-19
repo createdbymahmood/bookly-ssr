@@ -36,7 +36,7 @@ export const permissions = {
         },
         comments: {
             read: true,
-            create: true,
+            create: false,
             update: false,
             delete: true,
         },
