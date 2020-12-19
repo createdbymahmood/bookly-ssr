@@ -1,19 +1,19 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
-import { DeleteButton } from "components/DeleteButton";
-import { Text } from "components/Text";
-import { Link, RouterLinkProps } from "components/Link";
+import { DeleteButton } from 'components/DeleteButton';
+import { Text } from 'components/Text';
+import { Link } from 'components/Link';
 /* modules */
-import dayJs from "dayjs";
+import dayJs from 'dayjs';
 /* helpers */
-import { routeTo } from "helpers/routeTo";
-import { uniqueId } from "helpers/uniqueId";
+import { routeTo } from 'helpers/routeTo';
+import { uniqueId } from 'helpers/uniqueId';
 /* assets */
-import BookImage from "assets/images/book.jpg";
 /* types */
-import { CommentBoxProps } from "./CommentBox.types";
+import { CommentBoxProps } from './CommentBox.types';
 /* styles */
-import s from "./CommentBox.module.scss";
+import s from './CommentBox.module.scss';
+import { Image } from 'components/Image';
 
 export const CommentBox: FC<CommentBoxProps> = ({
     id: commentId,
@@ -23,28 +23,29 @@ export const CommentBox: FC<CommentBoxProps> = ({
     onDelete = defaultOnDelete,
 }) => {
     const relativeFakeTime = dayJs().from(date, true);
-
+    const userId = uniqueId();
     return (
         <div className={s.box}>
             {/* navigating to user profile page */}
-            <Link<RouterLinkProps>
+            <Link
                 permission="routes.profile.publicUser"
-                to={routeTo("publicUserProfile", { userId: uniqueId() })}
+                {...routeTo.publicUserProfile(userId)}
             >
-                <img className={s.profileImage} src={BookImage} />
+                <Image
+                    className={s.profileImage}
+                    src={require('assets/images/book.jpg')}
+                />
             </Link>
 
             <div className={s.header}>
                 <p className={s.description}>
-                    <Link<RouterLinkProps>
+                    <Link
                         permission="routes.profile.publicUser"
-                        to={routeTo("publicUserProfile", {
-                            userId: uniqueId(),
-                        })}
+                        {...routeTo.publicUserProfile(userId)}
                     >
                         {username}
                     </Link>
-                    {"  "}
+                    {'  '}
                     {relativeFakeTime} پیش گفته
                 </p>
 

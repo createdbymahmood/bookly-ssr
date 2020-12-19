@@ -1,16 +1,15 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
+import { Image } from 'components/Image';
 /* modules */
-import clsx from "classnames";
+import clsx from 'classnames';
+import { AclService } from 'services/rbac';
 /* helpers */
 /* assets */
-import { ReactComponent as EditIcon } from "assets/icons/edit.svg";
-
 /* types */
-import { EditButtonProps } from "./EditButton.types";
+import { EditButtonProps } from './EditButton.types';
 /* styles */
-import s from "./EditButton.module.scss";
-import { AclService } from "services/rbac";
+import s from './EditButton.module.scss';
 
 export const EditButton: FC<EditButtonProps> = ({
     className,
@@ -19,7 +18,11 @@ export const EditButton: FC<EditButtonProps> = ({
 }) => {
     return (
         <AclService permission={permission}>
-            <EditIcon className={clsx(className, s.icon)} {...restProps} />
+            <Image
+                src={require('assets/icons/edit.svg')}
+                className={clsx(className, s.icon)}
+                {...restProps}
+            />
         </AclService>
     );
 };

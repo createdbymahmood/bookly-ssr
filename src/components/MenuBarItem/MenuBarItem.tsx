@@ -1,14 +1,14 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 /* components */
 /* modules */
-import { Link, RouterLinkProps } from "components/Link";
-import clsx from "classnames";
+import { Link } from 'components/Link';
+import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* types */
-import { MenuBarItemComponentProps } from "./MenuBarItem.types";
+import { MenuBarItemComponentProps } from './MenuBarItem.types';
 /* styles */
-import s from "./MenuBarItem.module.scss";
+import s from './MenuBarItem.module.scss';
 
 export const MenuBarItem: FunctionComponent<MenuBarItemComponentProps> = props => {
     const {
@@ -20,11 +20,10 @@ export const MenuBarItem: FunctionComponent<MenuBarItemComponentProps> = props =
         ...restProps
     } = props;
     return (
-        <Link<RouterLinkProps>
+        <Link
             permission={permission}
-            exact={exact}
             activeClassName={s.activeMenuItem}
-            to={link}
+            href={link}
             className={clsx(s.menuItem, className)}
         >
             <span {...restProps}>{title}</span>

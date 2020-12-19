@@ -1,25 +1,25 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 /* components */
-import { Publisher, PublisherBox } from "components/Publisher";
-import { GenericGrid } from "components/GenericGrid";
+import { Publisher, PublisherBox } from 'components/Publisher';
+import { GenericGrid } from 'components/GenericGrid';
 /* modules */
-import { useQueryString } from "hooks/useQueryString";
 /* helpers */
-import { checkInclusion } from "helpers/checkInclusion";
+import { checkInclusion } from 'helpers/checkInclusion';
 /* types */
-import { PublishersGridComponentProps } from "./PublishersGrid.types";
+import { PublishersGridComponentProps } from './PublishersGrid.types';
 /* styles */
-import s from "./PublishersGrid.module.scss";
-import { Col } from "components/Col";
+import s from './PublishersGrid.module.scss';
+import { Col } from 'components/Col';
+import { useRouter } from 'next/router';
 
 export const PublishersGrid: FunctionComponent<PublishersGridComponentProps> = ({
     loading,
     publishers,
 }) => {
-    const [{ query }] = useQueryString();
+    const { query } = useRouter();
 
     const filterPublishers = (publisher: Publisher) =>
-        checkInclusion(publisher.title, query as string);
+        checkInclusion(publisher.title, String(query.query));
 
     if (loading) {
         return <PublisherBox.ShimmerGrid />;

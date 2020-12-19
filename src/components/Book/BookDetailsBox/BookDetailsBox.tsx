@@ -1,32 +1,30 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent } from 'react';
 /* components */
-import { Image } from "components/Image";
-import { Text } from "components/Text";
-import { BookImageCarousel } from "components/Book";
+import { Text } from 'components/Text';
+import { BookImageCarousel } from 'components/Book';
+import { EditButton } from 'components/EditButton';
+import { Link } from 'components/Link';
 /* assets */
-import BookImage from "assets/images/book.jpg";
 /* modules */
-import clsx from "classnames";
+import { routeTo } from 'helpers/routeTo';
+import clsx from 'classnames';
 /* types */
-import { BookDetailsBoxComponentProps } from "./BookDetailsBox.types";
+import { BookDetailsBoxComponentProps } from './BookDetailsBox.types';
 /* styles */
-import s from "./BookDetailsBox.module.scss";
-import { EditButton } from "components/EditButton";
-import { Link, RouterLinkProps } from "components/Link";
-import { routeTo } from "helpers/routeTo";
+import s from './BookDetailsBox.module.scss';
 
 export const BookDetailsBox: FunctionComponent<BookDetailsBoxComponentProps> = ({
     title,
     author,
     id: bookId,
-    imageSrc = BookImage,
+    imageSrc,
 }) => {
     return (
         <div className={clsx(s.box, `shadow`)}>
             <div className="d-flex align-items-center p-3">
-                <Link<RouterLinkProps>
+                <Link
                     permission="routes.book.update"
-                    to={routeTo("updateBook", { bookId })}
+                    {...routeTo.updateBook(bookId)}
                 >
                     <EditButton
                         className={s.editIcon}

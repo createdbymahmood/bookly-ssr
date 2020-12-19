@@ -1,26 +1,26 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
-import { CategoryBox } from "components/Category";
-import { GenericGrid } from "components/GenericGrid";
-import { Col } from "components/Col";
+import { CategoryBox } from 'components/Category';
+import { GenericGrid } from 'components/GenericGrid';
+import { Col } from 'components/Col';
 /* modules */
-import { useQueryString } from "hooks/useQueryString";
+import { useRouter } from 'next/router';
 /* helpers */
-import { checkInclusion } from "helpers/checkInclusion";
-import { uniqueId } from "lodash";
+import { checkInclusion } from 'helpers/checkInclusion';
+import { uniqueId } from 'lodash';
 /* assets */
 /* types */
-import { CategoriesGridProps } from "./CategoriesGrid.types.d";
+import { CategoriesGridProps } from './CategoriesGrid.types.d';
 /* styles */
 
 export const CategoriesGrid: FC<CategoriesGridProps> = ({
     categories,
     loading = false,
 }) => {
-    const [{ query }] = useQueryString();
+    const { query } = useRouter();
 
     const filterPublishers = (category: Category.Base) =>
-        checkInclusion(category.categoryTitle, query as string);
+        checkInclusion(category.categoryTitle, String(query.query));
 
     if (loading) {
         return <CategoryBox.ShimmerGrid />;

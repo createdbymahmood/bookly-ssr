@@ -6,7 +6,6 @@ import { DeleteButton } from 'components/DeleteButton';
 import { Text } from 'components/Text';
 /* modules */
 import { Link } from 'components/Link';
-import { routeTo } from 'helpers/routeTo';
 import { useDeleteBook, useLikeBook } from 'hooks/operations';
 import { useOverflow } from 'hooks/useOverflow';
 /* assets */
@@ -14,6 +13,7 @@ import { useOverflow } from 'hooks/useOverflow';
 import { BookProps } from './BookBox.types';
 /* styles */
 import s from './BookBox.module.scss';
+import { routeTo } from 'helpers/routeTo';
 
 export const BookBox: React.FC<BookProps> = ({
     initialLikeState,
@@ -24,8 +24,11 @@ export const BookBox: React.FC<BookProps> = ({
     id: bookId,
     ...restProps
 }) => {
-    const [like, { isLoading: likeIsLoading }] = useLikeBook();
-    const [deleteBook, { isLoading: deleteBookIsLoading }] = useDeleteBook();
+    const { mutate: like, isLoading: likeIsLoading } = useLikeBook();
+    const {
+        mutate: deleteBook,
+        isLoading: deleteBookIsLoading,
+    } = useDeleteBook();
 
     const handleLikeChange = (likeState: boolean, bookId: string) => {
         like({ likeState, bookId });
@@ -74,10 +77,7 @@ export const BookBox: React.FC<BookProps> = ({
                 </div>
             </div>
             <div className="p-1">
-                <Link
-                    permission="routes.book.read"
-                    href={routeTo('book', { bookId })}
-                >
+                <Link permission="routes.book.read" {...routeTo.book(bookId)}>
                     <Image className={s.image} src={imageSrc} />
                 </Link>
             </div>

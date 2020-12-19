@@ -1,9 +1,9 @@
-import React from "react";
-import { routeTo } from "helpers/routeTo";
-import { Link, RouterLinkProps } from "components/Link";
-import { PopConfirm } from "components/PopConfirm";
-import { Button } from "components/Button";
-import { BaseUsersTableComponentProps } from "./UsersTable.types";
+import React from 'react';
+import { routeTo } from 'helpers/routeTo';
+import { Link } from 'components/Link';
+import { PopConfirm } from 'components/PopConfirm';
+import { Button } from 'components/Button';
+import { BaseUsersTableComponentProps } from './UsersTable.types';
 
 type RenderColumnNameProps<T> = {
     name: any;
@@ -16,11 +16,9 @@ export function RenderColumnName<T>({
     record,
 }: RenderColumnNameProps<T>): JSX.Element {
     return (
-        <Link<RouterLinkProps>
+        <Link
             permission="routes.user"
-            to={routeTo("publicUserProfile", {
-                userId: record.id || 0,
-            })}
+            {...routeTo.publicUserProfile(record.id || '0')}
         >
             {name}
         </Link>
@@ -28,7 +26,7 @@ export function RenderColumnName<T>({
 }
 
 type RenderActionsColumnProps<T> = RenderColumnNameProps<T> & {
-    onDeleteUser: BaseUsersTableComponentProps["onDeleteUser"];
+    onDeleteUser: BaseUsersTableComponentProps['onDeleteUser'];
 };
 
 export function RenderActionsColumn<T>({

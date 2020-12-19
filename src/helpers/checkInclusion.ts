@@ -1,5 +1,4 @@
-import { ParsedQuery } from "query-string";
-import { Maybe } from "types/global";
+import { ParsedQuery } from 'query-string';
 
 export const checkInclusion = (
     textWeWantToCheckInclusion: string,

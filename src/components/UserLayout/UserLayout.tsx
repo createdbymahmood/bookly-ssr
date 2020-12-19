@@ -1,26 +1,25 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
-import { Drawer } from "components/Drawer";
+import { Drawer } from 'components/Drawer';
 /* modules */
-import clsx from "classnames";
-import { useMediaQuery } from "hooks/useMediaQuery";
+import clsx from 'classnames';
+import { useMedia } from 'react-use';
 /* helpers */
 /* assets */
-import { ReactComponent as SettingsIcon } from "assets/icons/settings.svg";
 /* types */
-import { UserLayoutComponentProps } from "./UserLayout.types";
+import { UserLayoutComponentProps } from './UserLayout.types';
 /* styles */
-import s from "./UserLayout.module.scss";
-import { Text } from "components/Text";
-import { Image } from "components/Image";
-import { generateFakeImageUrl } from "helpers/generateFakeImageUrl";
-import { Link, RouterLinkProps } from "components/Link";
-import { routeTo } from "helpers/routeTo";
-import { MENU } from "constants/topbar";
+import s from './UserLayout.module.scss';
+import { Text } from 'components/Text';
+import { Image } from 'components/Image';
+import { generateFakeImageUrl } from 'helpers/generateFakeImageUrl';
+import { Link } from 'components/Link';
+import { routeTo } from 'helpers/routeTo';
+import { MENU } from 'constants/topbar';
 
 export const UserLayout: FC<UserLayoutComponentProps> = props => {
     const { className, ...restProps } = props;
-    const isMobile = useMediaQuery("(max-width: 992px)");
+    const isMobile = useMedia('(max-width: 992px)');
     // const isMobile = true;
 
     if (isMobile) {
@@ -49,13 +48,16 @@ export const Content = (props: UserLayoutComponentProps) => {
             <div className="menu mt-4">
                 {MENU.map(item => {
                     return (
-                        <Link<RouterLinkProps>
+                        <Link
                             permission="routes.categories"
-                            to={item.link}
                             className={s.menuItem}
                             activeClassName={s.activeMenuItem}
+                            href={item.link}
                         >
-                            <SettingsIcon className={s.menuItemIcon} />
+                            <Image
+                                src={require('assets/icons/settings.svg')}
+                                className={s.menuItemIcon}
+                            />
                             <Text className={s.menuItemText}>{item.title}</Text>
                         </Link>
                     );

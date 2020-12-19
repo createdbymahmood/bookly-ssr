@@ -1,13 +1,14 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect } from 'react';
+/* components */
+import { Image } from 'components/Image';
 /* modules */
-import classnames from "classnames";
-import { useToggle } from "hooks/useToggle";
+import classnames from 'classnames';
+import { useToggle } from 'react-use';
 /* assets */
-import { ReactComponent as BookmarkIcon } from "assets/icons/bookmark.svg";
 /* types */
-import { BookmarkButtonComponentProps } from "./BookmarkButton.types";
+import { BookmarkButtonComponentProps } from './BookmarkButton.types';
 /* styles */
-import s from "./BookmarkButton.module.scss";
+import s from './BookmarkButton.module.scss';
 
 export const BookmarkButton: FC<BookmarkButtonComponentProps> = ({
     onBookmarkStateChange = defaultOnBookmarkStateChange,
@@ -19,7 +20,8 @@ export const BookmarkButton: FC<BookmarkButtonComponentProps> = ({
     useEffect(() => onBookmarkStateChange(bookmarkState), [bookmarkState]);
 
     return (
-        <BookmarkIcon
+        <Image
+            src={require('assets/icons/bookmark.svg')}
             onClick={toggleBookmarkState}
             className={svgColor}
             {...restProps}
@@ -28,5 +30,5 @@ export const BookmarkButton: FC<BookmarkButtonComponentProps> = ({
 };
 
 const defaultOnBookmarkStateChange = () => {
-    console.log("defaultOnBookmarkStateChange fired");
+    console.log('defaultOnBookmarkStateChange fired');
 };

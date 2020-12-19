@@ -1,33 +1,32 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
-import { Input, InputProps } from "components/Input";
-import { Form } from "antd";
+import { Input, InputProps } from 'components/Input';
+import { Form } from 'antd';
 /* modules */
-import clsx from "classnames";
-import { useQueryString } from "hooks/useQueryString";
+import clsx from 'classnames';
 /* helpers */
 /* constants */
 /* assets */
 /* types */
-import { FeedFilterBoxProps } from "./FeedFilterBox.types";
+import { FeedFilterBoxProps } from './FeedFilterBox.types';
 /* styles */
-import s from "./FeedFilterBox.module.scss";
-import { isNullOrEmptyString } from "helpers/isNullOrEmptyString";
-import { KeyboardKeys } from "types/global";
+import s from './FeedFilterBox.module.scss';
+import { isNullOrEmptyString } from 'helpers/isNullOrEmptyString';
+import { KeyboardKeys } from 'types/global';
+import { useRouter } from 'next/router';
 
 export const FeedFilterBox: FC<FeedFilterBoxProps> = React.memo(
     ({ className, onSearch }) => {
-        const [{ query }] = useQueryString();
-
+        const { query } = useRouter();
         const inputConfig: InputProps = {
-            placeholder: "جست و جو",
-            defaultValue: query as string,
+            placeholder: 'جست و جو',
+            defaultValue: String(query.query),
             onChange: event => handleOnChange(event, onSearch),
             onKeyDown: event => handleOnKeyDown(event, onSearch),
         };
 
         return (
-            <div className={clsx(s.box, "mb-3", className)}>
+            <div className={clsx(s.box, 'mb-3', className)}>
                 <Form.Item help="بعد از نوشتن متن مورد نظر، Enter را فشار دهید">
                     <Input.Text {...inputConfig} />
                 </Form.Item>
@@ -40,7 +39,7 @@ const handleOnChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     callback: (text: string) => void
 ) => {
-    if (isNullOrEmptyString(e.target.value)) callback("");
+    if (isNullOrEmptyString(e.target.value)) callback('');
 };
 
 const handleOnKeyDown = (
@@ -48,10 +47,10 @@ const handleOnKeyDown = (
     callback: (text: string) => void
 ) => {
     switch (e.key as KeyboardKeys) {
-        case "Enter":
+        case 'Enter':
             return callback(e.currentTarget.value);
-        case "Escape":
-            return callback("");
+        case 'Escape':
+            return callback('');
         default:
             return;
     }

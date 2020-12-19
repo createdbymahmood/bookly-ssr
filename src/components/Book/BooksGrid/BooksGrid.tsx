@@ -1,21 +1,22 @@
-import React, { FC } from "react";
+import React, { FC } from 'react';
 /* components */
-import { BookBox } from "components/Book";
-import { GenericGrid } from "components/GenericGrid";
-import { Col } from "components/Col";
+import { BookBox } from 'components/Book';
+import { GenericGrid } from 'components/GenericGrid';
+import { Col } from 'components/Col';
 /* helpers */
-import { uniqueId } from "helpers/uniqueId";
-import { useQueryString } from "hooks/useQueryString";
-import { checkInclusion } from "helpers/checkInclusion";
+import { uniqueId } from 'helpers/uniqueId';
+/* modules */
+import { useRouter } from 'next/router';
+import { checkInclusion } from 'helpers/checkInclusion';
 /* types */
-import { BooksGridProps } from "./BooksGrid.types.d";
+import { BooksGridProps } from './BooksGrid.types.d';
 /* styles */
 
 export const BooksGrid: FC<BooksGridProps> = ({ books, loading = false }) => {
-    const [{ query }] = useQueryString();
+    const { query } = useRouter();
 
     const filterBooks = (book: Book.Base) =>
-        checkInclusion(book.title, query as string);
+        checkInclusion(book.title, String(query.query));
 
     if (loading) {
         return <BookBox.ShimmerGrid />;
