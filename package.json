@@ -28,12 +28,14 @@
         "format:check": "prettier --check src"
     },
     "dependencies": {
+        "axios": "^0.21.0",
         "lodash": "^4.17.20",
         "next": "10.0.3",
         "react": "17.0.1",
         "react-dom": "17.0.1",
         "react-query": "^3.3.2",
-        "react-use": "^15.3.4"
+        "react-use": "^15.3.4",
+        "recoil": "^0.1.2"
     },
     "devDependencies": {
         "@types/lodash": "^4.14.165",
