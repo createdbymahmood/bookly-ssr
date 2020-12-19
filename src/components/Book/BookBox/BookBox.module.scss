@@ -1,0 +1,63 @@
+.box {
+    color: var(--black);
+    border-radius: 10px;
+    background: var(--white);
+    user-select: none;
+}
+
+.publisher {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.content {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.image {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    height: 250px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.code {
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+.authorWrap {
+    max-width: 50%;
+}
+.author {
+    font-weight: 600;
+    font-size: 14px;
+    max-width: 100%;
+}
+
+.authorTitle {
+    font-size: 14px;
+    opacity: 0.5;
+    text-align: left;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-right: auto;
+}
+
+.deleteIcon {
+    stroke: var(--black);
+}

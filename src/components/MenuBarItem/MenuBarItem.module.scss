@@ -1,0 +1,10 @@
+.menuItem {
+    color: var(--black);
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.activeMenuItem {
+    border-bottom: 3px dotted var(--black);
+    padding: 0 0 6px 0;
+}

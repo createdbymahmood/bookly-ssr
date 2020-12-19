@@ -1,0 +1,29 @@
+.input,
+.textarea {
+    width: 100%;
+    background: var(--gray-100);
+    padding: 10px;
+    font-size: 14px;
+    &::placeholder {
+        color: var(--gray-300);
+        font-weight: 300;
+        font-size: 14px;
+    }
+
+    #basic_password {
+        background: var(--gray-100);
+    }
+}
+
+.input {
+    border-radius: 9999px;
+}
+.textarea {
+    border-radius: 10px;
+}
+
+:global {
+    .ant-input {
+        background: var(--gray-100);
+    }
+}

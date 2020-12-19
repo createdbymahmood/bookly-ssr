@@ -1,0 +1,24 @@
+.box {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.title {
+    font-weight: 700;
+}
+
+.author {
+    opacity: 0.5;
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: auto;
+}
+
+.image {
+    border-radius: 10px;
+}
+
+.editIcon {
+    margin-left: 10px;
+}

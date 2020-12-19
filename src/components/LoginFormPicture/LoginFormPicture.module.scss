@@ -1,0 +1,6 @@
+.picture {
+    height: calc(100vh - 116px);
+    @media screen and (max-width: 992px) {
+        height: 300px;
+    }
+}

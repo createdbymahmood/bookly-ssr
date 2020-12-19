@@ -1,0 +1,98 @@
+.box {
+    border-radius: 10px;
+    position: relative;
+}
+
+.name {
+    height: 25px;
+    width: 100px;
+    border-radius: 10px;
+    @extend .shimmer;
+}
+.registerDate {
+    margin-right: auto;
+    height: 25px;
+    width: 102px;
+    border-radius: 10px;
+    @extend .shimmer;
+}
+
+.role {
+    margin-top: 5px;
+    height: 25px;
+    width: 50px;
+    border-radius: 10px;
+    @extend .shimmer;
+}
+
+.nameRoleWrap {
+    margin-right: 10px;
+}
+
+.profileImage {
+    height: 60px;
+    width: 60px;
+    border-radius: 9999px;
+    @extend .shimmer;
+}
+
+.biographyTitle {
+    margin-top: 30px;
+    height: 25px;
+    width: 90.41px;
+    border-radius: 10px;
+    @extend .shimmer;
+}
+
+.biography {
+    margin-top: 10px;
+    position: relative;
+    height: 240px;
+    border-radius: 10px;
+    @extend .shimmer;
+}
+
+.collapsed {
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 30%;
+        background: linear-gradient(
+            to bottom,
+            transparent -20%,
+            var(--white) 70%
+        );
+    }
+}
+
+.showMore {
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    left: 30px;
+    bottom: 40px;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+
+    svg {
+        height: 20px;
+        width: 20px;
+        stroke-width: 3;
+        margin-right: 5px;
+    }
+}
+
+.showMoreNormalPosition {
+    position: initial;
+    left: 30px;
+    bottom: 0;
+    letter-spacing: -0.5px;
+    margin-top: 20px;
+}
+
+@import "../../assets/styles/utils.scss";

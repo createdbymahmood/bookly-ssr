@@ -1,0 +1,60 @@
+.box {
+    border-radius: 10px;
+    background: var(--white);
+    height: 100%;
+}
+
+.publisher {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 64px;
+    padding: 0 10px;
+}
+
+.image {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    height: 250px;
+    background: var(--gray-100);
+    @extend .shimmer;
+}
+
+.title,
+.authorWrap {
+    background: var(--gray-100);
+    padding: 20px 5px;
+    width: 50%;
+}
+.title {
+    margin-left: 5px;
+    @extend .shimmer;
+}
+
+.authorWrap {
+    margin-right: 5px;
+    @extend .shimmer;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin-right: auto;
+
+    & div {
+        height: 24px;
+        width: 24px;
+        border-radius: 10px;
+        @extend .shimmer;
+    }
+}
+@import "../../../assets/styles/utils.scss";
