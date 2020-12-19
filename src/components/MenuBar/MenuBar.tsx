@@ -27,7 +27,7 @@ export const MenuBar: FC<MenuBarComponentProps> = props => {
 
 const renderMenuItem = ({ title, link, permission, exact }: MenuItem) => (
     <MenuBarItem
-        key={link.toString()}
+        key={link.href.toString()}
         permission={permission}
         title={title}
         link={link}

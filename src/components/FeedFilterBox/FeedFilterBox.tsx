@@ -4,29 +4,29 @@ import { Input, InputProps } from 'components/Input';
 import { Form } from 'antd';
 /* modules */
 import clsx from 'classnames';
+import { useRouter } from 'next/router';
 /* helpers */
+import { isNullOrEmptyString } from 'helpers/isNullOrEmptyString';
 /* constants */
 /* assets */
 /* types */
+import { KeyboardKeys } from 'types/global';
 import { FeedFilterBoxProps } from './FeedFilterBox.types';
 /* styles */
 import s from './FeedFilterBox.module.scss';
-import { isNullOrEmptyString } from 'helpers/isNullOrEmptyString';
-import { KeyboardKeys } from 'types/global';
-import { useRouter } from 'next/router';
 
 export const FeedFilterBox: FC<FeedFilterBoxProps> = React.memo(
     ({ className, onSearch }) => {
         const { query } = useRouter();
         const inputConfig: InputProps = {
             placeholder: 'جست و جو',
-            defaultValue: String(query.query),
+            defaultValue: query?.query,
             onChange: event => handleOnChange(event, onSearch),
             onKeyDown: event => handleOnKeyDown(event, onSearch),
         };
 
         return (
-            <div className={clsx(s.box, 'mb-3', className)}>
+            <div className={clsx(s.box, className)}>
                 <Form.Item help="بعد از نوشتن متن مورد نظر، Enter را فشار دهید">
                     <Input.Text {...inputConfig} />
                 </Form.Item>

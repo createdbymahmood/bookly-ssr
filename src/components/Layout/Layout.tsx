@@ -7,7 +7,7 @@ import { TopBar } from 'components/TopBar';
 /* constants */
 /* types */
 import { LayoutProps } from './Layout.types';
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 /* styles */
 
 export const Layout: FC<LayoutProps> = ({ children, withSearchbar }) => {

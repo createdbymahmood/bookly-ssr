@@ -11,6 +11,8 @@ import { FormInstance } from 'antd/lib/form';
 import { DescriptionBox } from 'components/DescriptionBox';
 import { useDeleteComment } from 'hooks/operations/comment/useDeleteComment';
 import { mock } from 'helpers/mock';
+import { compose } from 'helpers/compose';
+import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 
 const Book = ({ book, bookId }) => {
     const { data, isLoading } = useSingleBook(bookId, {
@@ -94,4 +96,4 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     };
 };
 
-export default Book;
+export default compose(injectLayoutConfig('book'))(Book);

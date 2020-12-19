@@ -3,9 +3,10 @@ import { BooksGrid } from 'components/Book';
 import { Head } from 'components/Head';
 import { mock } from 'helpers/mock';
 import { useBooks, readBooks } from 'hooks/operations';
-import apiService from 'services/api/apiService';
+import { compose } from 'helpers/compose';
+import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 
-export default function Home(props) {
+function Home(props) {
     const { data, isFetched } = useBooks({ initialData: props.initialBooks });
 
     return (
@@ -31,3 +32,5 @@ export const getServerSideProps = async () => {
         },
     };
 };
+
+export default compose(injectLayoutConfig('home'))(Home);

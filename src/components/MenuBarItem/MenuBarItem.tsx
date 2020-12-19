@@ -23,8 +23,8 @@ export const MenuBarItem: FunctionComponent<MenuBarItemComponentProps> = props =
         <Link
             permission={permission}
             activeClassName={s.activeMenuItem}
-            href={link}
             className={clsx(s.menuItem, className)}
+            {...link}
         >
             <span {...restProps}>{title}</span>
         </Link>
