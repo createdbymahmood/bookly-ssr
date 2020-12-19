@@ -16,5 +16,5 @@ export const mock = <T extends any>(
     if (mocks.length < count) {
         return mocks as T[];
     }
-    return shuffle(mocks.slice(0, count || mocks.length)) as T[];
+    return mocks.slice(0, count || mocks.length) as T[];
 };
