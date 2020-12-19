@@ -1,5 +1,6 @@
 {
     "name": "bookly-ssr",
+    "description": "The final project of my bachelor's degree, in SSR version",
     "version": "0.1.0",
     "private": true,
     "scripts": {
