@@ -14,6 +14,11 @@ export const Head: FC<Props> = props => {
             <title>
                 {props.title} | {APP_TITLE}
             </title>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <meta
+                name="keywords"
+                content="کتاب، به اشتراک گذاری کتاب، کتاب آنلاین، دانلود کتاب PDF"
+            />
             {props.children}
         </NextHead>
     );
