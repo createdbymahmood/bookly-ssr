@@ -15,3 +15,4 @@ export type $ElementProps<T> = T extends React.ComponentType<infer Props>
     : never;
 export type Maybe<T> = T | undefined | null;
 export type KeyboardKeys = 'Enter' | 'Escape';
+export type ValidationRuleType = Record<string, Rule[]>;

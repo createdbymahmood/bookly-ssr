@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query';
+import { QueryOptions, useMutation } from 'react-query';
 import API_URLS from 'constants/apiUrls';
 import apiService from 'services/api/apiService';
 import { Profile } from 'types/profile';
@@ -15,7 +15,7 @@ export const updateProfile = async (
     return data;
 };
 
-export const useUpdateProfile = () =>
+export const useUpdateProfile = (options: QueryOptions) =>
     useMutation(updateProfile, {
         onError: () => {
             notice.error(API_RESPONSE_MESSAGES.profile.update.error);

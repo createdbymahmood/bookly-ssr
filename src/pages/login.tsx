@@ -11,7 +11,7 @@ import { NextPage } from 'next';
 import { useLogin } from 'hooks/operations';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 
-const Login: NextPage = props => {
+function Login() {
     const { mutate: login, isLoading: loginIsLoading } = useLogin();
 
     return (
@@ -29,6 +29,7 @@ const Login: NextPage = props => {
             </Row>
         </Fragment>
     );
-};
+}
 
 export default injectLayoutConfig('login')(Login);
+// export default Login;

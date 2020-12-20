@@ -11,6 +11,7 @@ import { Input } from 'components/Input';
 import { ReadingBookSvg } from 'components/ReadingBookSvg';
 /* modules */
 import clsx from 'classnames';
+import { useRouter } from 'next/router';
 /* helpers */
 /* assets */
 /* mock */
@@ -21,21 +22,17 @@ import { SubmitBookFormProps } from './SubmitBookForm.types';
 import { getDropboxConfig, renderSubmitBookTitle } from './utils';
 /* styles */
 import s from './SubmitBookForm.module.scss';
-import { useRouter } from 'next/router';
 
 export const SubmitBookForm: FC<SubmitBookFormProps> = ({
     onSubmit,
+    bookId,
     loading = false,
 }) => {
     const [form] = Form.useForm();
-    const router = useRouter();
-    const { bookId } = router.query;
 
     return (
         <div className={clsx(s.box, `shadow p-3`)}>
-            <Text className={s.title}>
-                {renderSubmitBookTitle(bookId as string)}
-            </Text>
+            <Text className={s.title}>{renderSubmitBookTitle(bookId)}</Text>
 
             <Form
                 form={form}

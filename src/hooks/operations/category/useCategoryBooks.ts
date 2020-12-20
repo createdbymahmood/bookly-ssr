@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { QueryFunctionContext, QueryOptions, useQuery } from 'react-query';
 import API_URLS from 'constants/apiUrls';
 import apiService, { AxiosRequestConfig } from 'services/api/apiService';
 import { fakeApiCall } from 'helpers/fakeApi';
@@ -11,6 +11,6 @@ export const readCategoryBooks = async (_: unknown, categoryId: string) => {
     return data;
 };
 
-export const useCategoryBooks = (categoryId: string) => {
-    return useQuery([API_URLS.category, categoryId], fakeApiCall);
+export const useCategoryBooks = (categoryId: string, options: QueryOptions) => {
+    return useQuery([API_URLS.category, categoryId], fakeApiCall, options);
 };

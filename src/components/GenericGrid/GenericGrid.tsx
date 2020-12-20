@@ -19,7 +19,7 @@ export function GenericGrid<T>(props: Props<T>) {
     const { query } = useRouter();
 
     if (isEmptyArray(filtered)) {
-        return <EmptyGrid query={String(query.query)} />;
+        return <EmptyGrid query={query?.query} />;
     }
     return <RowPlaceholder>{filtered.map(renderItem)}</RowPlaceholder>;
 }

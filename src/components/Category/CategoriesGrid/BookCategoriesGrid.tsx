@@ -20,7 +20,7 @@ export const CategoriesGrid: FC<CategoriesGridProps> = ({
     const { query } = useRouter();
 
     const filterPublishers = (category: Category.Base) =>
-        checkInclusion(category.categoryTitle, String(query.query));
+        checkInclusion(category.categoryTitle, query?.query);
 
     if (loading) {
         return <CategoryBox.ShimmerGrid />;

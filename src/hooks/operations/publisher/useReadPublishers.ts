@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { QueryOptions, useQuery } from 'react-query';
 import API_URLS from 'constants/apiUrls';
 import apiService from 'services/api/apiService';
 import { fakeApiCall } from 'helpers/fakeApi';
@@ -8,6 +8,6 @@ export const readPublishers = async () => {
     return data;
 };
 
-export const usePublishers = () => {
+export const usePublishers = (options: QueryOptions) => {
     return useQuery(API_URLS.publishers, fakeApiCall);
 };

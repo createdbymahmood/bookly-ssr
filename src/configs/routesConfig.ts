@@ -51,9 +51,17 @@ export const routeConfigs = {
         layout: { include: true, withSearchbar: false },
         accessKey: 'routes.user',
     },
+    users: {
+        layout: { include: true, withSearchbar: false },
+        accessKey: 'routes.users',
+    },
     categories: {
         layout: { include: true, withSearchbar: true },
         accessKey: 'routes.categories',
+    },
+    category: {
+        layout: { include: true, withSearchbar: false },
+        accessKey: 'routes.category',
     },
     submitBook: {
         layout: { include: true, withSearchbar: false },

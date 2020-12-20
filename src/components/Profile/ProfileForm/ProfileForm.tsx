@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 /* components */
 import { Form } from 'antd';
 import { Input } from 'components/Input';
@@ -6,17 +6,18 @@ import { Button } from 'components/Button';
 import { Col } from 'components/Col';
 import { Row } from 'components/Row';
 import { UploadDropbox } from 'components/UploadDropbox';
+import { Text } from 'components/Text';
 /* modules */
 import clsx from 'classnames';
 /* helpers */
+/* constants */
+import { PROFILE_FORM_RULES } from './validations';
 /* assets */
 import { ProfileFormPicture } from 'components/Profile';
 /* types */
 import { ProfileFormProps } from './ProfileForm.types';
 /* styles */
 import s from './ProfileForm.module.scss';
-import { PROFILE_FORM_RULES } from 'constants/validationRules';
-import { Text } from 'components/Text';
 
 export const ProfileForm: FC<ProfileFormProps> = ({
     onSubmit,

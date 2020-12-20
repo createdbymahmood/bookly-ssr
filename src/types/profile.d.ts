@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
 
-declare namespace Profile {
+export namespace Profile {
     type Base = {
         username: string;
         biography: string;
