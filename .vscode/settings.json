@@ -3,6 +3,7 @@
         "deps",
         "assets",
         "types",
-        "remove"
+        "remove",
+        "content"
     ]
 }
