@@ -7,7 +7,7 @@ import { Text } from 'components/Text';
 /* modules */
 import clsx from 'classnames';
 /* constants */
-import { BOOK_COMMENT_VALIDATION_RULES } from 'constants/validationRules';
+import { BOOK_COMMENT_VALIDATION_RULES } from './validations';
 /* types */
 import { CommentInputBoxProps } from './CommentInputBox.types';
 /* styles */

@@ -8,7 +8,7 @@ import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* constants */
-import { REGISTER_FORM_VALIDATION_RULES } from 'constants/validationRules';
+import { REGISTER_FORM_VALIDATION_RULES } from './validations';
 /* types */
 import { RegisterFormComponentProps } from './RegisterForm.types';
 /* styles */

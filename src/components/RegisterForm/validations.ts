@@ -1,21 +1,4 @@
-import { Rule } from 'antd/lib/form';
-
-type ValidationRuleType = Record<string, Rule[]>;
-
-export const LOGIN_FORM_VALIDATION_RULES: ValidationRuleType = {
-    username: [
-        {
-            required: true,
-            message: 'نام کاربری را وارد کنید',
-        },
-    ],
-    password: [
-        {
-            required: true,
-            message: 'رمز عبور را وارد کنید',
-        },
-    ],
-};
+import { ValidationRuleType } from 'types/global';
 
 export const REGISTER_FORM_VALIDATION_RULES: ValidationRuleType = {
     username: [
@@ -44,18 +27,4 @@ export const REGISTER_FORM_VALIDATION_RULES: ValidationRuleType = {
             },
         }),
     ],
-};
-
-export const BOOK_COMMENT_VALIDATION_RULES: ValidationRuleType = {
-    comment: [
-        {
-            required: true,
-            message: 'متن نظر نمی تواند خالی باشد :(',
-        },
-    ],
-};
-export const PROFILE_FORM_RULES: ValidationRuleType = {
-    name: [{ required: true }],
-    profileImage: [{ len: 2000 }],
-    biography: [],
 };

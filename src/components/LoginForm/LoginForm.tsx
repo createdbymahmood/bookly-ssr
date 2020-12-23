@@ -4,11 +4,10 @@ import { Form } from 'antd';
 import { Input } from 'components/Input';
 import { Button } from 'components/Button';
 /* modules */
-import clsx from 'classnames';
 /* helpers */
 /* assets */
 /* constants */
-import { LOGIN_FORM_VALIDATION_RULES } from 'constants/validationRules';
+import { LOGIN_FORM_VALIDATION_RULES } from './validations';
 /* types */
 import { LoginFormComponentProps } from './LoginForm.types';
 /* styles */
