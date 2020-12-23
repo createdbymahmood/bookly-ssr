@@ -2,20 +2,26 @@
 import API_URLS from 'constants/apiUrls';
 import API_RESPONSE_MESSAGES from 'constants/apiResponseMessages';
 /* modules */
-import { useMutation } from 'react-query';
+import { QueryObserverOptions, useMutation } from 'react-query';
 /* helpers */
 import * as notice from 'helpers/notice';
 import { transformObjectToFormData } from 'helpers/transformObjectToFormData';
 /* services */
 import apiService from 'services/api/apiService';
 
-export const submitBook = (data: Book.Mutation.Submit.Variables) => {
-    const payload = transformObjectToFormData(data);
-    return apiService.post(API_URLS.book, payload);
+export const submitBook = async (data: Book.Mutation.Submit.Variables) => {
+    try {
+        const payload = transformObjectToFormData(data);
+        const { data: response } = await apiService.post(
+            API_URLS.book,
+            payload
+        );
+        return response;
+    } catch (error) {}
 };
 
-export const useSubmitBook = () =>
-    useMutation(submitBook, {
+export const useSubmitBook = (options: QueryObserverOptions = {}) => {
+    return useMutation(submitBook, {
         onSuccess: (_, newBook) => {
             /* update cache and push new data to books */
             notice.success(API_RESPONSE_MESSAGES.book.submit.success);
@@ -23,4 +29,6 @@ export const useSubmitBook = () =>
         onError: () => {
             notice.error(API_RESPONSE_MESSAGES.book.submit.error);
         },
+        ...options,
     });
+};

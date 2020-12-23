@@ -1,4 +1,4 @@
-import { useMutation, UseMutationOptions } from 'react-query';
+import { useMutation, MutationObserverOptions } from 'react-query';
 /* services */
 import apiService, { ApiServiceError } from 'services/api/apiService';
 /* constants */
@@ -6,21 +6,21 @@ import API_URLS from 'constants/apiUrls';
 import API_RESPONSE_MESSAGES from 'constants/apiResponseMessages';
 import * as notice from 'helpers/notice';
 
-export const likeBook = (data: Book.Mutation.Like.Variables) => {
-    return apiService.patch(API_URLS.like, data);
+export const likeBook = async (payload: Book.Mutation.Like.Variables) => {
+    try {
+        const { data } = await apiService.patch(API_URLS.like, payload);
+        return data;
+    } catch (error) {}
 };
 
-type UseLikeBookOptions = UseMutationOptions<
-    Book.Mutation.Like.Result,
-    ApiServiceError,
-    Book.Mutation.Like.Variables
->;
-export const useLikeBook = (options: UseLikeBookOptions) => {
-    return useMutation<
+export const useLikeBook = (
+    options: MutationObserverOptions<
         Book.Mutation.Like.Result,
         ApiServiceError,
         Book.Mutation.Like.Variables
-    >(likeBook, {
+    > = {}
+) => {
+    return useMutation(likeBook, {
         onSuccess: (_, variables) => {},
         onError: () => {
             notice.error(API_RESPONSE_MESSAGES.book.like.error);

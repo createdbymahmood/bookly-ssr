@@ -5,8 +5,14 @@ import API_RESPONSE_MESSAGES from 'constants/apiResponseMessages';
 /* helpers */
 import * as notice from 'helpers/notice';
 
-export const createComment = (data: Comment.Create.Variables) => {
-    return apiService.post<unknown, Comment.Base>(API_URLS.comments, data);
+export const createComment = async (payload: Comment.Create.Variables) => {
+    try {
+        const { data } = await apiService.post<Comment.Base>(
+            API_URLS.comments,
+            payload
+        );
+        return data;
+    } catch (error) {}
 };
 
 export const useCreateComment = (config?: QueryOptions) =>

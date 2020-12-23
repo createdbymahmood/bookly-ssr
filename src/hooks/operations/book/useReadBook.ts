@@ -6,16 +6,16 @@ export const readBook = async (_: unknown, bookId: string) => {
     const requestConfig: AxiosRequestConfig = {
         params: { bookId },
     };
-    const { data } = await apiService.get(API_URLS.book, requestConfig);
-    return data;
+    try {
+        const { data } = await apiService.get(API_URLS.book, requestConfig);
+        return data;
+    } catch (error) {}
 };
 
-export const fakeApiCall = (): Promise<void> =>
-    new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve();
-        }, 3000);
-    });
 export const useSingleBook = (bookId: string, config) => {
-    return useQuery([API_URLS.book, bookId], fakeApiCall, config);
+    return useQuery(
+        [API_URLS.book, bookId],
+        () => readBook(undefined, bookId),
+        config
+    );
 };

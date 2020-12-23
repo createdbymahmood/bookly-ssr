@@ -5,8 +5,10 @@ import { Hydrate } from 'react-query/hydration';
 
 const queryClient = new QueryClient();
 
-export const ReactQueryService: FunctionComponent = props => {
-    const { children } = props;
-
-    return <QueryClientProvider client={queryClient}></QueryClientProvider>;
+export const ReactQueryService: FunctionComponent = ({ children }) => {
+    return (
+        <QueryClientProvider client={queryClient}>
+            {children}
+        </QueryClientProvider>
+    );
 };
