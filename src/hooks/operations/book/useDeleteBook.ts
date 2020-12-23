@@ -31,7 +31,7 @@ export const useDeleteBook = (
         Book.Mutation.Delete.Result,
         ApiServiceError,
         Book.Mutation.Delete.Variables
-    >
+    > = {}
 ) => {
     return useMutation(deleteBook, {
         onMutate: deletedBook => {},

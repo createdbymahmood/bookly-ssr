@@ -20,7 +20,7 @@ export const deleteUser = async ({
     } catch (error) {}
 };
 
-export const useDeleteUser = (options: object) => {
+export const useDeleteUser = (options: object = {}) => {
     return useMutation(deleteUser, {
         onSuccess: () => {
             notice.success(API_RESPONSE_MESSAGES.user.delete.success);
