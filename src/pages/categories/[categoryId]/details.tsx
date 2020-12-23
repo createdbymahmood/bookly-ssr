@@ -8,13 +8,29 @@ import { CategoryDetailsBox } from 'components/Category';
 /* helpers */
 import { mock } from 'helpers/mock';
 /* types */
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 /* modules */
 import { readCategoryBooks, useCategoryBooks } from 'hooks';
 import { generateFakeImageUrl } from 'helpers/generateFakeImageUrl';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 
-function Categories({ initialCategories, categoryId }) {
+type Props = {
+    initialCategories: Category.Base[];
+    categoryId: string;
+};
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+    query,
+}) => {
+    const categoryId = query.categoryId as string;
+    const categories = await readCategoryBooks(undefined, categoryId as string);
+    return {
+        props: {
+            initialCategories: categories,
+            categoryId,
+        },
+    };
+};
+const Categories: NextPage<Props> = ({ initialCategories, categoryId }) => {
     const { isLoading, data } = useCategoryBooks(categoryId, {
         initialData: initialCategories,
     });
@@ -42,17 +58,6 @@ function Categories({ initialCategories, categoryId }) {
             </Row>
         </Fragment>
     );
-}
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const categoryId = query.categoryId;
-    const categories = await readCategoryBooks(undefined, categoryId as string);
-    return {
-        props: {
-            initialCategories: categories,
-            categoryId,
-        },
-    };
 };
 
 export default injectLayoutConfig('category')(Categories);

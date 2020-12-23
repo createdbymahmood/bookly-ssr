@@ -2,7 +2,7 @@ import { default as NextHead } from 'next/head';
 /* types */
 import { FC, ReactNode } from 'react';
 /* constants */
-import { APP_TITLE } from 'constants/config';
+import SEO from 'configs/seo';
 
 type Props = {
     children: ReactNode;
@@ -12,13 +12,11 @@ export const Head: FC<Props> = props => {
     return (
         <NextHead>
             <title>
-                {props.title} | {APP_TITLE}
+                {props.title} | {SEO.title}
             </title>
-            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-            <meta
-                name="keywords"
-                content="کتاب، به اشتراک گذاری کتاب، کتاب آنلاین، دانلود کتاب PDF"
-            />
+            <meta http-equiv="Content-Type" content={SEO.contentType} />
+            <meta name="keywords" content={SEO.keywords} />
+            <meta name="author" content={SEO.author} />
             {props.children}
         </NextHead>
     );

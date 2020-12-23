@@ -1,8 +1,12 @@
 import { useQuery } from 'react-query';
 import API_URLS from 'constants/apiUrls';
 import apiService, { AxiosRequestConfig } from 'services/api/apiService';
+import { Publisher } from 'components/Publisher';
 
-export const readPublisher = async (_: unknown, publisherId: string) => {
+export const readPublisher = async (
+    _: unknown,
+    publisherId: string
+): Promise<Publisher[]> => {
     const requestConfig: AxiosRequestConfig = {
         params: { publisherId },
     };

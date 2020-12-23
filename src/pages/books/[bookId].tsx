@@ -1,24 +1,28 @@
-import { Head } from 'components/Head';
 import { Fragment } from 'react';
+/* components */
+import { Head } from 'components/Head';
 import { Col } from 'components/Col';
 import { Row } from 'components/Row';
+import { BookDetailsBox } from 'components/Book';
+import { DescriptionBox } from 'components/DescriptionBox';
+import { CommentInputBox, CommentsGrid } from 'components/Comment';
+import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
+/* helpers */
+import { mock } from 'helpers/mock';
+import { compose } from 'helpers/compose';
+/* modules */
 import {
     useSingleBook,
     readBook,
     useCreateComment,
     useDeleteComment,
 } from 'hooks';
-import { GetServerSideProps } from 'next';
-import { BookDetailsBox } from 'components/Book';
 import { AclService } from 'services/rbac';
-import { CommentInputBox, CommentsGrid } from 'components/Comment';
+/* types */
+import { GetServerSideProps, NextPage } from 'next';
 import { FormInstance } from 'antd/lib/form';
-import { DescriptionBox } from 'components/DescriptionBox';
-import { mock } from 'helpers/mock';
-import { compose } from 'helpers/compose';
-import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 
-const Book = ({ book, bookId }) => {
+const Book: NextPage<Props> = ({ book, bookId }) => {
     const { data, isLoading } = useSingleBook(bookId, {
         initialData: book,
     });
@@ -48,7 +52,8 @@ const Book = ({ book, bookId }) => {
         console.log(`deleting comment with the commentId: ${commentId} `);
     };
 
-    const description = `لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+    const description = `
+    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
     استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
     در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد`;
 
@@ -89,7 +94,11 @@ const Book = ({ book, bookId }) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({
+type Props = {
+    book: Book.Base;
+    bookId: string;
+};
+export const getServerSideProps: GetServerSideProps<Props> = async ({
     query,
     params,
 }) => {
@@ -99,7 +108,7 @@ export const getServerSideProps: GetServerSideProps = async ({
     return {
         props: {
             book,
-            bookId: query.bookId,
+            bookId: query.bookId as string,
         },
     };
 };

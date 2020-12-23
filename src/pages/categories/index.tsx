@@ -7,10 +7,23 @@ import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 /* helpers */
 import { mock } from 'helpers/mock';
 /* types */
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 /* modules */
 
-function Categories({ initialCategories }) {
+type Props = {
+    initialCategories: Category.Base[];
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+    const categories = await readCategories();
+    return {
+        props: {
+            initialCategories: categories,
+        },
+    };
+};
+
+const Categories: NextPage<Props> = ({ initialCategories }) => {
     const { data } = useCategories({
         refetchOnMount: false,
         refetchOnWindowFocus: false,
@@ -26,15 +39,6 @@ function Categories({ initialCategories }) {
             <CategoriesGrid categories={mock('categories', 12)} />
         </Fragment>
     );
-}
-
-export const getServerSideProps: GetServerSideProps = async () => {
-    const categories = await readCategories();
-    return {
-        props: {
-            initialCategories: categories,
-        },
-    };
 };
 
 export default injectLayoutConfig('categories')(Categories);

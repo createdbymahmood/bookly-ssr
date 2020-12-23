@@ -10,6 +10,14 @@ import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 type Props = {
     initialData: Publisher[];
 };
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+    const publishers = await readPublishers();
+    return {
+        props: {
+            initialData: publishers,
+        },
+    };
+};
 
 const Publishers: NextPage<Props> = ({ initialData }) => {
     const { data } = usePublishers({ initialData });
@@ -25,15 +33,6 @@ const Publishers: NextPage<Props> = ({ initialData }) => {
             <PublishersGrid publishers={mock('publishers')} />
         </Fragment>
     );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const publishers = await readPublishers();
-    return {
-        props: {
-            initialData: publishers,
-        },
-    };
 };
 
 export default injectLayoutConfig('publishers')(Publishers);

@@ -7,11 +7,20 @@ import { GetServerSideProps, NextPage } from 'next';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 
-type Props = {
+type PageProps = {
     userId: string;
 };
 
-const User: NextPage<Props> = ({ userId }) => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async ({
+    query,
+}) => {
+    const userId = query.userId as string;
+    return {
+        props: { userId },
+    };
+};
+
+const User: NextPage<PageProps> = ({ userId }) => {
     const { mutate: deleteComment } = useDeleteComment();
 
     return (
@@ -28,13 +37,6 @@ const User: NextPage<Props> = ({ userId }) => {
             />
         </Fragment>
     );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const userId = query.userId;
-    return {
-        props: { userId },
-    };
 };
 
 export default injectLayoutConfig('user')(User);

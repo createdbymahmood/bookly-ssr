@@ -2,20 +2,26 @@ import { Fragment } from 'react';
 /* components */
 import { ProfileForm } from 'components/Profile';
 import { readProfile, useUpdateProfile } from 'hooks';
-import { GetServerSideProps, NextPage } from 'next';
+import { GetServerSideProps } from 'next';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 import { Profile } from 'types/profile';
 
-type Props = {
-    initialProfile: Profile.Base;
+type PageProps = { initialProfile: Profile.Base };
+
+export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
+    const profile = await readProfile();
+    return {
+        props: {
+            initialProfile: profile,
+        },
+    };
 };
 
-const ProfilePage: NextPage<Props> = ({ initialProfile }) => {
+function ProfilePage({ initialProfile }: PageProps) {
     const { mutate: updateProfile, isLoading } = useUpdateProfile({
         initialData: initialProfile,
     });
-
     return (
         <Fragment>
             <Head title="پروفایل">
@@ -27,15 +33,6 @@ const ProfilePage: NextPage<Props> = ({ initialProfile }) => {
             <ProfileForm loading={isLoading} onSubmit={updateProfile} />
         </Fragment>
     );
-};
-
-export const getServerSideProps: GetServerSideProps = async ({}) => {
-    const profile = await readProfile();
-    return {
-        props: {
-            initialProfile: profile,
-        },
-    };
-};
+}
 
 export default injectLayoutConfig('profile')(ProfilePage);

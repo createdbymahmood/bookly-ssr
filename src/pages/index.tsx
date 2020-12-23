@@ -5,17 +5,18 @@ import { mock } from 'helpers/mock';
 import { useBooks, readBooks } from 'hooks';
 import { compose } from 'helpers/compose';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 
-export const getServerSideProps: GetServerSideProps = async () => {
+type PageProps = {
+    initialBooks: Book.Query.Result[];
+};
+export const getServerSideProps: GetServerSideProps<PageProps> = async () => {
     const books = await readBooks();
-    return { props: { initialData: books } };
+    return { props: { initialBooks: books } };
 };
 
-function Home({
-    initialData,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    const { data, isFetched } = useBooks({ initialData });
+const Home: NextPage<PageProps> = ({ initialBooks }) => {
+    const { data, isFetched } = useBooks({ initialData: initialBooks });
     return (
         <Fragment>
             <Head title="خانه">
@@ -23,11 +24,10 @@ function Home({
                     name="description"
                     content="لیست عکس های ثبت شده توسط کاربران"
                 />
-                <meta name="keywords" content="book, scientific books" />
             </Head>
             <BooksGrid books={mock<Book.Base>('books', 12)} loading={false} />
         </Fragment>
     );
-}
+};
 
 export default compose(injectLayoutConfig('home'))(Home);
