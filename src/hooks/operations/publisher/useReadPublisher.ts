@@ -1,7 +1,6 @@
 import { useQuery } from 'react-query';
 import API_URLS from 'constants/apiUrls';
 import apiService, { AxiosRequestConfig } from 'services/api/apiService';
-import { fakeApiCall } from '../book/useReadBook';
 
 export const readPublisher = async (_: unknown, publisherId: string) => {
     const requestConfig: AxiosRequestConfig = {
@@ -11,5 +10,7 @@ export const readPublisher = async (_: unknown, publisherId: string) => {
 };
 
 export const useSinglePublisher = (publisherId: string) => {
-    return useQuery([API_URLS.publisher, publisherId], fakeApiCall);
+    return useQuery([API_URLS.publisher, publisherId], () =>
+        readPublisher(undefined, publisherId)
+    );
 };
