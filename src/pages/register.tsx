@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 /* components */
 import { RegisterForm } from 'components/RegisterForm';
-import { useRegister } from 'hooks/operations';
+import { useRegister } from 'hooks';
 import { RegisterFormPicture } from 'components/RegisterFormPicture';
 import { Row } from 'components/Row';
 import { Col } from 'components/Col';

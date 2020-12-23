@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { BooksGrid } from 'components/Book';
 import { Head } from 'components/Head';
 import { mock } from 'helpers/mock';
-import { useBooks, readBooks } from 'hooks/operations';
+import { useBooks, readBooks } from 'hooks';
 import { compose } from 'helpers/compose';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';

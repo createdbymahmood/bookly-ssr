@@ -2,14 +2,18 @@ import { Head } from 'components/Head';
 import { Fragment } from 'react';
 import { Col } from 'components/Col';
 import { Row } from 'components/Row';
-import { useSingleBook, readBook, useCreateComment } from 'hooks/operations';
+import {
+    useSingleBook,
+    readBook,
+    useCreateComment,
+    useDeleteComment,
+} from 'hooks';
 import { GetServerSideProps } from 'next';
 import { BookDetailsBox } from 'components/Book';
 import { AclService } from 'services/rbac';
 import { CommentInputBox, CommentsGrid } from 'components/Comment';
 import { FormInstance } from 'antd/lib/form';
 import { DescriptionBox } from 'components/DescriptionBox';
-import { useDeleteComment } from 'hooks/operations/comment/useDeleteComment';
 import { mock } from 'helpers/mock';
 import { compose } from 'helpers/compose';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';

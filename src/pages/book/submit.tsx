@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react';
 /* components */
 import { SubmitBookForm } from 'components/SubmitBookForm';
-import { useSubmitBook } from 'hooks/operations';
+import { useSubmitBook } from 'hooks';
 import { GetServerSideProps, NextPage } from 'next';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';

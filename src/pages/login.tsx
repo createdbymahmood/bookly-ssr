@@ -6,9 +6,8 @@ import { Row } from 'components/Row';
 import { Col } from 'components/Col';
 import { Head } from 'components/Head';
 /* types */
-import { NextPage } from 'next';
 /* modules */
-import { useLogin } from 'hooks/operations';
+import { useLogin } from 'hooks';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 
 function Login() {

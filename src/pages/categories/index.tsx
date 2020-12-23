@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 /* components */
 import { CategoriesGrid } from 'components/Category';
-import { readCategories, useCategories } from 'hooks/operations';
+import { readCategories, useCategories } from 'hooks';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 /* helpers */

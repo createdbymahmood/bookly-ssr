@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react';
 /* components */
 import { UsersTable } from 'components/UsersTable';
-import { useDeleteUser } from 'hooks/operations';
+import { useDeleteUser } from 'hooks';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 

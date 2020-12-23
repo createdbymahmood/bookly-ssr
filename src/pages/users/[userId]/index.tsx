@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 /* components */
 import { CommentsGrid } from 'components/Comment';
-import { useDeleteComment } from 'hooks/operations';
+import { useDeleteComment } from 'hooks';
 import { mock } from 'helpers/mock';
 import { GetServerSideProps, NextPage } from 'next';
 import { Head } from 'components/Head';

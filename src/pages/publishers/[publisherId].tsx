@@ -6,7 +6,7 @@ import { PublisherBox } from 'components/Publisher';
 import { BooksGrid } from 'components/Book';
 import { DescriptionBox } from 'components/DescriptionBox';
 import { uniqueId } from 'helpers/uniqueId';
-import { readPublisher, useSinglePublisher } from 'hooks/operations';
+import { readPublisher, useSinglePublisher } from 'hooks';
 import { mock } from 'helpers/mock';
 import { generateFakeImageUrl } from 'helpers/generateFakeImageUrl';
 import { GetServerSideProps, NextPage } from 'next';

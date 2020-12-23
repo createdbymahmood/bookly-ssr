@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 /* components */
 import { Publisher, PublishersGrid } from 'components/Publisher';
-import { readPublishers, usePublishers } from 'hooks/operations';
+import { readPublishers, usePublishers } from 'hooks';
 import { mock } from 'helpers/mock';
 import { Head } from 'components/Head';
 import { GetServerSideProps, NextPage } from 'next';

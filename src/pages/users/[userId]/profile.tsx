@@ -7,7 +7,7 @@ import { BooksGrid } from 'components/Book';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 /* modules */
-import { readPublicUserProfile, usePublicUserProfile } from 'hooks/operations';
+import { readPublicUserProfile, usePublicUserProfile } from 'hooks';
 /* helpers */
 import { mock } from 'helpers/mock';
 import { randomDate } from 'helpers/randomDate';

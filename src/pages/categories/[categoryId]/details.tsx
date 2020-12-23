@@ -10,7 +10,7 @@ import { mock } from 'helpers/mock';
 /* types */
 import { GetServerSideProps } from 'next';
 /* modules */
-import { readCategoryBooks, useCategoryBooks } from 'hooks/operations';
+import { readCategoryBooks, useCategoryBooks } from 'hooks';
 import { generateFakeImageUrl } from 'helpers/generateFakeImageUrl';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 

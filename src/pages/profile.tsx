@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 /* components */
 import { ProfileForm } from 'components/Profile';
-import { readProfile, useUpdateProfile } from 'hooks/operations';
+import { readProfile, useUpdateProfile } from 'hooks';
 import { GetServerSideProps, NextPage } from 'next';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';

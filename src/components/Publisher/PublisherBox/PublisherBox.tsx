@@ -14,7 +14,7 @@ import { routeTo } from 'helpers/routeTo';
 import { PublisherBoxComponentProps } from './PublisherBox.types';
 /* styles */
 import s from './PublisherBox.module.scss';
-import { useFollowPublisher } from 'hooks/operations';
+import { useFollowPublisher } from 'hooks';
 
 const defaultOnFollow = (id: string) => {
     console.log(id);

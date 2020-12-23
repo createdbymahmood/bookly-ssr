@@ -6,8 +6,7 @@ import { DeleteButton } from 'components/DeleteButton';
 import { Text } from 'components/Text';
 /* modules */
 import { Link } from 'components/Link';
-import { useDeleteBook, useLikeBook } from 'hooks/operations';
-import { useOverflow } from 'hooks/useOverflow';
+import { useDeleteBook, useLikeBook, useOverflow } from 'hooks';
 /* assets */
 /* types */
 import { BookProps } from './BookBox.types';
