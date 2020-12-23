@@ -15,7 +15,7 @@ export const updateProfile = async profile => {
     } catch (error) {}
 };
 
-export const useUpdateProfile = () => {
+export const useUpdateProfile = (options: object) => {
     return useMutation(updateProfile, {
         onError: () => {
             notice.error(API_RESPONSE_MESSAGES.profile.update.error);
@@ -23,5 +23,6 @@ export const useUpdateProfile = () => {
         onSuccess: () => {
             notice.success(API_RESPONSE_MESSAGES.profile.update.success);
         },
+        ...options,
     });
 };
