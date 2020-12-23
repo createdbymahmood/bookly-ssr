@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query';
+import { useMutation, UseMutationOptions } from 'react-query';
 /* services */
 import apiService, { ApiServiceError } from 'services/api/apiService';
 /* constants */
@@ -10,7 +10,12 @@ export const likeBook = (data: Book.Mutation.Like.Variables) => {
     return apiService.patch(API_URLS.like, data);
 };
 
-export const useLikeBook = () => {
+type UseLikeBookOptions = UseMutationOptions<
+    Book.Mutation.Like.Result,
+    ApiServiceError,
+    Book.Mutation.Like.Variables
+>;
+export const useLikeBook = (options: UseLikeBookOptions) => {
     return useMutation<
         Book.Mutation.Like.Result,
         ApiServiceError,
@@ -20,5 +25,6 @@ export const useLikeBook = () => {
         onError: () => {
             notice.error(API_RESPONSE_MESSAGES.book.like.error);
         },
+        ...options,
     });
 };
