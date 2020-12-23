@@ -19,7 +19,7 @@ export const LikeButton: FC<LikeButtonComponentProps> = props => {
         permission,
         ...restProps
     } = props;
-    const svgColor = classnames(s.like, { [s.black]: initialLikeState });
+    const rootClassName = classnames(s.like, { [s.black]: initialLikeState });
 
     const toggleLike = () => {
         onChange(initialLikeState);
@@ -32,8 +32,8 @@ export const LikeButton: FC<LikeButtonComponentProps> = props => {
     return (
         <AclService permission={permission}>
             <Image
+                className={rootClassName}
                 src={'/icons/like.svg'}
-                className={svgColor}
                 onClick={toggleLike}
                 {...restProps}
             />
