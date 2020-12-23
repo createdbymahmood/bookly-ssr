@@ -3,7 +3,7 @@ import { HTMLProps, SVGProps } from 'react';
 export type BaseLikeButtonProps = {
     initialLikeState: boolean;
     loading: boolean;
-    permission: string;
+    permission: Path<Permission>;
     onChange: (likeState: boolean) => void;
 };
 

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { default as NextLink, LinkProps as NextLinkProps } from 'next/link';
 import { omit } from 'lodash';
-import { AclService } from 'services/rbac';
+import { AclService, Permission } from 'services/rbac';
+import { Path } from 'types/global';
 
 type LinkProps = NextLinkProps & {
-    permission: string;
+    permission: Path<Permission>;
     activeClassName?: string;
     className?: string;
 };

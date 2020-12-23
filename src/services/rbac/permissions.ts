@@ -22,6 +22,9 @@ export const permissions = {
             submitBook: true,
             error: true,
         },
+        home: {
+            read: false,
+        },
         drawer: {
             see: true,
             users: false,
@@ -60,3 +63,5 @@ export const permissions = {
         },
     },
 };
+
+export type Permission = typeof permissions['guest'];

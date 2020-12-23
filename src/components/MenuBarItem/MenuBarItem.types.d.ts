@@ -1,7 +1,10 @@
+import { Permission } from 'services/rbac';
+import { Path } from 'types/global';
+
 export type MenuItem = {
     title: string;
     link: { href: string; as: string };
-    permission: string;
+    permission: Path<Permission>;
     exact?: boolean;
 };
 

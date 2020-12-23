@@ -9,6 +9,8 @@ import { Head } from 'components/Head';
 /* modules */
 import { useLogin } from 'hooks';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
+import { compose } from 'helpers/compose';
+import { injectAuthConfig } from 'components/hoc/injectAuthConfig';
 
 function Login() {
     const { mutate: login, isLoading: loginIsLoading } = useLogin();
@@ -30,5 +32,8 @@ function Login() {
     );
 }
 
-export default injectLayoutConfig('login')(Login);
+export default compose(
+    injectLayoutConfig('login'),
+    injectAuthConfig('routes.login')
+)(Login);
 // export default Login;

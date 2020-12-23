@@ -6,6 +6,7 @@ import { useBooks, readBooks } from 'hooks';
 import { compose } from 'helpers/compose';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 import { GetServerSideProps, NextPage } from 'next';
+import { injectAuthConfig } from 'components/hoc/injectAuthConfig';
 
 type PageProps = {
     initialBooks: Book.Query.Result[];
@@ -30,4 +31,7 @@ const Home: NextPage<PageProps> = ({ initialBooks }) => {
     );
 };
 
-export default compose(injectLayoutConfig('home'))(Home);
+export default compose(
+    injectLayoutConfig('home'),
+    injectAuthConfig('home.read')
+)(Home);

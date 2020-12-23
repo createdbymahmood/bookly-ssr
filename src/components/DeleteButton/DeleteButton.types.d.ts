@@ -1,6 +1,7 @@
 import { PopconfirmProps } from 'antd/lib/popconfirm';
+import { Path } from 'types/global';
 
 export type DeleteButtonProps = PopconfirmProps & {
-    permission: string;
+    permission: Path<Permission>;
     loading?: boolean;
 };
