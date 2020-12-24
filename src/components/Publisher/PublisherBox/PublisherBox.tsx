@@ -51,7 +51,10 @@ const PublisherBoxImage = ({
     imageSrc,
 }: Pick<PublisherBoxComponentProps, 'imageSrc' | 'id'>) => {
     return (
-        <Link permission="routes.publisher" {...routeTo.publisher(publisherId)}>
+        <Link
+            permission="publisher.readSingle"
+            {...routeTo.publisher(publisherId)}
+        >
             <div className="p-1">
                 <Image className={s.image} src={imageSrc} />
             </div>

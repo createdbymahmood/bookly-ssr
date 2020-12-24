@@ -6,6 +6,8 @@ import { GetServerSideProps } from 'next';
 import { Head } from 'components/Head';
 import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 import { Profile } from 'types/profile';
+import { injectAuthConfig } from 'components/hoc/injectAuthConfig';
+import { compose } from 'helpers/compose';
 
 type PageProps = { initialProfile: Profile.Base };
 
@@ -35,4 +37,7 @@ function ProfilePage({ initialProfile }: PageProps) {
     );
 }
 
-export default injectLayoutConfig('profile')(ProfilePage);
+export default compose(
+    injectLayoutConfig('profile'),
+    injectAuthConfig('profile.read')
+)(ProfilePage);

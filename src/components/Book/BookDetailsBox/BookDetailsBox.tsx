@@ -22,10 +22,7 @@ export const BookDetailsBox: FunctionComponent<BookDetailsBoxComponentProps> = (
     return (
         <div className={clsx(s.box, `shadow`)}>
             <div className="d-flex align-items-center p-3">
-                <Link
-                    permission="routes.book.update"
-                    {...routeTo.updateBook(bookId)}
-                >
+                <Link permission="books.update" {...routeTo.updateBook(bookId)}>
                     <EditButton
                         className={s.editIcon}
                         permission="books.update"

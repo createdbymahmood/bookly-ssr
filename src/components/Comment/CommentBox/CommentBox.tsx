@@ -28,7 +28,7 @@ export const CommentBox: FC<CommentBoxProps> = ({
         <div className={s.box}>
             {/* navigating to user profile page */}
             <Link
-                permission="routes.profile.publicUser"
+                permission="profile.readPublicUserProfile"
                 {...routeTo.publicUserProfile(userId)}
             >
                 <Image className={s.profileImage} src={'/images/book.jpg'} />
@@ -37,7 +37,7 @@ export const CommentBox: FC<CommentBoxProps> = ({
             <div className={s.header}>
                 <p className={s.description}>
                     <Link
-                        permission="routes.profile.publicUser"
+                        permission="profile.readPublicUserProfile"
                         {...routeTo.publicUserProfile(userId)}
                     >
                         {username}
@@ -50,6 +50,7 @@ export const CommentBox: FC<CommentBoxProps> = ({
                     permission="comments.delete"
                     onConfirm={() => onDelete(commentId)}
                     title="برای حذف کردن این نظر مطمئن هستید؟"
+                    loading={false}
                 />
             </div>
 

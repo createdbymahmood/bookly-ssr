@@ -49,7 +49,7 @@ export const Content = (props: UserLayoutComponentProps) => {
                 {MENU.map(item => {
                     return (
                         <Link
-                            permission="routes.categories"
+                            permission={item.permission}
                             className={s.menuItem}
                             activeClassName={s.activeMenuItem}
                             {...item.link}

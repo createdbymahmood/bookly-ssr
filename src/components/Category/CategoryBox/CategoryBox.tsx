@@ -19,7 +19,10 @@ export const CategoryBox: FC<CategoryBoxProps> = ({
     className,
 }) => {
     return (
-        <Link permission="routes.category" {...routeTo.category(categoryId)}>
+        <Link
+            permission="category.readSingle"
+            {...routeTo.category(categoryId)}
+        >
             <div className={clsx(s.box, 'shadow', className)}>
                 <picture className={s.picture}>
                     <Image alt={categoryTitle} src={generateFakeImageUrl()} />

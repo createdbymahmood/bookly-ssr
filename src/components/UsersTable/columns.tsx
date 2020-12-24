@@ -17,7 +17,7 @@ export function RenderColumnName<T>({
 }: RenderColumnNameProps<T>): JSX.Element {
     return (
         <Link
-            permission="routes.user"
+            permission="users.readSingle"
             {...routeTo.publicUserProfile(record.id || '0')}
         >
             {name}

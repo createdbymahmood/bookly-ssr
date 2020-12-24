@@ -1,9 +1,9 @@
 import { ComponentType } from 'react';
 import { useRouter } from 'next/router';
 import { useIsomorphicLayoutEffect } from 'react-use';
-import get from 'lodash/get';
 import { permissions, Permission } from 'services/rbac';
 import { Path } from 'types/global';
+import get from 'lodash.get';
 
 export function injectAuthConfig(accessKey: Path<Permission>) {
     return function <T>(Component: ComponentType<T>) {

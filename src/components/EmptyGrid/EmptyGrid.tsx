@@ -29,7 +29,7 @@ export const EmptyGrid: FC<EmptyGridProps> = ({ className, query }) => {
 };
 
 const Home = () => (
-    <Link permission="routes.home" {...routeTo.home}>
+    <Link permission="home.read" {...routeTo.home}>
         <span className={s.here}>اینجا</span>
     </Link>
 );

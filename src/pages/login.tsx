@@ -5,12 +5,12 @@ import { LoginFormPicture } from 'components/LoginFormPicture';
 import { Row } from 'components/Row';
 import { Col } from 'components/Col';
 import { Head } from 'components/Head';
+import { injectAuthConfig } from 'components/hoc/injectAuthConfig';
+import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 /* types */
 /* modules */
 import { useLogin } from 'hooks';
-import { injectLayoutConfig } from 'components/hoc/injectLayoutConfig';
 import { compose } from 'helpers/compose';
-import { injectAuthConfig } from 'components/hoc/injectAuthConfig';
 
 function Login() {
     const { mutate: login, isLoading: loginIsLoading } = useLogin();
@@ -34,6 +34,5 @@ function Login() {
 
 export default compose(
     injectLayoutConfig('login'),
-    injectAuthConfig('routes.login')
+    injectAuthConfig('login')
 )(Login);
-// export default Login;
