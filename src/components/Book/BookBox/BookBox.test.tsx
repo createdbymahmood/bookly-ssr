@@ -1,7 +1,13 @@
+/* test modules */
+import { RenderResult } from '@testing-library/react';
+import TestRenderer from 'react-test-renderer';
+/* helpers */
 import { generateFakeImageUrl } from 'helpers/generateFakeImageUrl';
 import { setupWrapper } from 'helpers/setupWrapper';
-import { $ElementProps } from 'types/global';
+/* component */
 import { BookBox } from './BookBox';
+/* types */
+import { $ElementProps } from 'types/global';
 
 describe('<BookBox />', () => {
     const onDeleteBook = jest.fn();
@@ -14,10 +20,41 @@ describe('<BookBox />', () => {
         imageSrc: generateFakeImageUrl(),
         onDeleteBook,
     };
-    const wrapper = setupWrapper(BookBox, props);
 
-    it('Should render title mese aadam', () => {
+    let wrapper: RenderResult;
+
+    beforeEach(() => {
+        wrapper = setupWrapper(BookBox, props);
+    });
+
+    it('Should render title', () => {
         const title = wrapper.getByText(props.title);
         expect(title).toBeInTheDocument();
+    });
+
+    it('Should render author', () => {
+        const author = wrapper.getByText(props.author);
+        expect(author).toBeInTheDocument();
+    });
+
+    it('Should render image', () => {
+        const image = wrapper.getByTestId(/bookImage/i);
+        expect(image).toBeInTheDocument();
+    });
+
+    it('Should render with the provided src', () => {
+        const image = wrapper.queryByTestId(/bookImage/i) as HTMLImageElement;
+        expect(image.src).toContain(props.imageSrc);
+    });
+
+    it('Testing useLikeBook execution', async () => {
+        /*
+        todo
+        */
+    });
+    it('Testing useDeleteBook execution', async () => {
+        /*
+        todo
+        */
     });
 });
