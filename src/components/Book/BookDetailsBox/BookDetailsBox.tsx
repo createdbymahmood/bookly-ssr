@@ -20,19 +20,23 @@ export const BookDetailsBox: FunctionComponent<BookDetailsBoxComponentProps> = (
     imageSrc,
 }) => {
     return (
-        <div className={clsx(s.box, `shadow`)}>
+        <div className={clsx(s.box, `shadow`)} data-testid="wrapper">
             <div className="d-flex align-items-center p-3">
                 <Link permission="books.update" {...routeTo.updateBook(bookId)}>
                     <EditButton
+                        data-testid="editButton"
                         className={s.editIcon}
                         permission="books.update"
                     />
                 </Link>
-                <Text className={s.title}>{title}</Text>
-                <Text className={s.author}>{author}</Text>
+                <Text data-testid="title" className={s.title}>
+                    {title}
+                </Text>
+                <Text data-testid="author" className={s.author}>
+                    {author}
+                </Text>
             </div>
             <BookImageCarousel />
-            {/* <Image className={s.image} src={imageSrc} /> */}
         </div>
     );
 };
