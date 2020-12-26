@@ -62,6 +62,6 @@ describe('<CategoryBox />', () => {
 
     it('Should apply extra classname ', () => {
         const box = wrapper.getByTestId(/box/i) as HTMLDivElement;
-        expect(box.classList).toContain(props.className);
+        expect(box.classList.toString()).toContain(props.className);
     });
 });
