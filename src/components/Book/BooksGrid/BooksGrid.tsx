@@ -40,6 +40,7 @@ const renderBooks = (book: Book.Base) => (
             imageSrc={book.imageSrc}
             initialLikeState={book.initialLikeState}
             onDeleteBook={bookId => console.log(bookId)}
+            data-testid="bookBox"
         />
     </Col>
 );
