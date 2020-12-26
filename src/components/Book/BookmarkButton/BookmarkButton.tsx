@@ -9,18 +9,28 @@ import { useToggle } from 'react-use';
 import { BookmarkButtonComponentProps } from './BookmarkButton.types';
 /* styles */
 import s from './BookmarkButton.module.scss';
+import { useStateCallback } from 'hooks/useStateWithCallback';
 
 export const BookmarkButton: FC<BookmarkButtonComponentProps> = ({
     onBookmarkStateChange = defaultOnBookmarkStateChange,
     initialBookmarkState = false,
     ...restProps
 }) => {
-    const [bookmarkState, toggleBookmarkState] = useToggle(false);
+    const [bookmarkState, setBookmarkState] = useStateCallback(
+        initialBookmarkState
+    );
     const svgColor = classnames(s.bookmark, { [s.black]: bookmarkState });
-    useEffect(() => onBookmarkStateChange(bookmarkState), [bookmarkState]);
-
+    const toggleBookmarkState = () => {
+        setBookmarkState(
+            bs => !bs,
+            () => {
+                onBookmarkStateChange(bookmarkState);
+            }
+        );
+    };
     return (
         <Image
+            data-testid="bookmarkIcon"
             src={'/icons/bookmark.svg'}
             onClick={toggleBookmarkState}
             className={svgColor}
@@ -29,6 +39,6 @@ export const BookmarkButton: FC<BookmarkButtonComponentProps> = ({
     );
 };
 
-const defaultOnBookmarkStateChange = () => {
+export const defaultOnBookmarkStateChange = () => {
     console.log('defaultOnBookmarkStateChange fired');
 };

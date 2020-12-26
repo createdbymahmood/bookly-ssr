@@ -1,5 +1,5 @@
 export type BaseLikeButtonProps = {
-    onBookmarkStateChange: (likeState: boolean) => void;
+    onBookmarkStateChange?: (likeState: boolean) => void;
     initialBookmarkState: boolean;
 };
 
