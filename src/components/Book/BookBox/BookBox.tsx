@@ -46,6 +46,7 @@ export const BookBox: React.FC<BookProps> = ({
 
     return (
         <div className={`${s.box} shadow`} {...restProps}>
+            ,
             <div
                 className={s.content}
                 id="content"
@@ -84,7 +85,6 @@ export const BookBox: React.FC<BookProps> = ({
                     />
                 </Link>
             </div>
-
             <div
                 className={s.actions}
                 id="actions"
