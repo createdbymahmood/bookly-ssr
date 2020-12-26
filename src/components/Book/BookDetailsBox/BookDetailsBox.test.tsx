@@ -9,7 +9,7 @@ import { BookDetailsBox } from './BookDetailsBox';
 import { $ElementProps } from 'types/global';
 import s from './BookDetailsBox.module.scss';
 
-describe('<BookBox />', () => {
+describe('<BookDetailsBox />', () => {
     const props: $ElementProps<typeof BookDetailsBox> = {
         id: '1',
         author: 'Mahmood Bagheri',
