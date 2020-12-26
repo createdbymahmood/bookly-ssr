@@ -21,11 +21,16 @@ export const CategoryBox: FC<CategoryBoxProps> = ({
     return (
         <Link
             permission="category.readSingle"
+            data-testid="categoryLink"
             {...routeTo.category(categoryId)}
         >
-            <div className={clsx(s.box, 'shadow', className)}>
-                <picture className={s.picture}>
-                    <Image alt={categoryTitle} src={generateFakeImageUrl()} />
+            <div data-testid="box" className={clsx(s.box, 'shadow', className)}>
+                <picture data-testid="pictureCover" className={s.picture}>
+                    <Image
+                        data-testid="categoryImage"
+                        alt={categoryTitle}
+                        src={generateFakeImageUrl()}
+                    />
                 </picture>
                 <Text className={s.title}>{categoryTitle}</Text>
             </div>

@@ -15,7 +15,12 @@ export const Link: React.FC<LinkProps> = props => {
     return (
         <AclService permission={props.permission}>
             <NextLink {...omit(restProps, ['children', 'className'])}>
-                <a className={props.className}>{restProps.children}</a>
+                <a
+                    data-testid={props['data-testid']}
+                    className={props.className}
+                >
+                    {restProps.children}
+                </a>
             </NextLink>
         </AclService>
     );
