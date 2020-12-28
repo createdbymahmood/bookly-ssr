@@ -8,26 +8,24 @@ import { uniqueId } from 'helpers/uniqueId';
 /* modules */
 import { useRouter } from 'next/router';
 import { checkInclusion } from 'helpers/checkInclusion';
+import { filter } from 'lodash/fp';
 /* types */
 import { BooksGridProps } from './BooksGrid.types.d';
 /* styles */
 
 export const BooksGrid: FC<BooksGridProps> = ({ books, loading = false }) => {
     const { query } = useRouter();
-    const filterBooks = (book: Book.Base) =>
-        checkInclusion(book.title, query.query);
 
     if (loading) {
         return <BookBox.ShimmerGrid />;
     }
 
+    const filteredBooks = filter<Book.Base>(book =>
+        checkInclusion(book.title, query.query)
+    )(books);
+
     return (
-        <GenericGrid
-            withRow
-            filter={filterBooks}
-            items={books}
-            renderItem={renderBooks}
-        />
+        <GenericGrid withRow items={filteredBooks} renderItem={renderBooks} />
     );
 };
 

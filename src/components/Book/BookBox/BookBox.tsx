@@ -7,6 +7,7 @@ import { Text } from 'components/Text';
 /* modules */
 import { Link } from 'components/Link';
 import { useDeleteBook, useLikeBook, useOverflow } from 'hooks';
+import clsx from 'classnames';
 /* assets */
 /* types */
 import { BookProps } from './BookBox.types';
@@ -54,7 +55,7 @@ export const BookBox: React.FC<BookProps> = ({
                 <Text
                     ref={titleRef}
                     withTooltip={titleIsOverflowing}
-                    className={`${s.title} truncate`}
+                    className={clsx(s.title, 'truncate')}
                 >
                     {title}
                 </Text>
@@ -62,7 +63,7 @@ export const BookBox: React.FC<BookProps> = ({
                     <Text
                         ref={authorRef}
                         withTooltip={authorIsOverflowing}
-                        className={`${s.author} truncate`}
+                        className={clsx(s.author, 'truncate')}
                     >
                         {author}
                     </Text>

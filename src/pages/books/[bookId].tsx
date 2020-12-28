@@ -102,7 +102,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     query,
     params,
 }) => {
-    console.log({ query, params });
     const book = await readBook(undefined, query.bookId as string);
 
     return {
